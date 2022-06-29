@@ -1,10 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:repository_riverpod_mvvm/main.dart';
+import 'package:repository_riverpod_mvvm/presentation_layer/common_widgets/common_app_bar.dart';
 import 'package:repository_riverpod_mvvm/presentation_layer/view_models/time_line_page_view_model.dart';
 
 import '../../domain_layer/models/post.dart';
@@ -24,6 +20,8 @@ class _TimeLinePageState extends ConsumerState<TimeLinePage> {
   void initState() {
     super.initState();
     _vm = widget.vm;
+
+    //ViewModelの初期化処理としてWidgetRefを渡してあげる
     _vm.init(ref);
   }
 
@@ -32,15 +30,7 @@ class _TimeLinePageState extends ConsumerState<TimeLinePage> {
     final AsyncValue<List<Post>> asyncValue = _vm.posts;
 
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          _vm.pageTitle,
-          style: const TextStyle(color: Colors.black),
-        ),
-        backgroundColor: Theme.of(context).canvasColor,
-        elevation: 2,
-      ),
+      appBar: CommonAppBar(_vm.pageTitle),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.chat_bubble_outline_outlined),
         onPressed: () => _vm.onPost(context),
@@ -55,7 +45,8 @@ class _TimeLinePageState extends ConsumerState<TimeLinePage> {
                 itemBuilder: (content, index) {
                   return Card(
                     child: ListTile(
-                      leading: const CircleAvatar(child: Icon(Icons.face)),
+                      leading: const CircleAvatar(
+                          child: Icon(Icons.face_retouching_natural_sharp)),
                       title: Text(data[index].content),
                       subtitle: Text(data[index].accountId),
                     ),

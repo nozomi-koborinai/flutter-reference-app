@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:repository_riverpod_mvvm/data_layer/post_repository.dart';
@@ -6,9 +5,6 @@ import 'package:repository_riverpod_mvvm/presentation_layer/view_models/time_lin
 import 'package:repository_riverpod_mvvm/presentation_layer/views/time_line_page.dart';
 
 void main() async {
-  // // Firebase初期化
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -18,11 +14,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'test',
+      title: 'Riverpod_MVVM_Practice',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: TimeLinePage(TimeLinePageViewModel(PostRepository.instance)),
+
+      //タイムラインページを表示
+      //view生成時、対応するViewModelを渡す
+      //さらにViewModel生成時、内部でコールするRepositoryのインスタンスを渡す
+      home: TimeLinePage(TimeLinePageViewModel(PostRepository())),
     );
   }
 }
