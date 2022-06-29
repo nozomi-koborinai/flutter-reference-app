@@ -1,17 +1,11 @@
 # repository_riverpod_mvvm
 
-A new Flutter project.
+AndreaさんのRepositoryパターンの記事を参考にしたアーキテクチャ
 
-## Getting Started
+## 参考記事
 
-This project is a starting point for a Flutter application.
+- [Flutter App Architecture: The Repository Pattern](https://codewithandrea.com/articles/flutter-repository-pattern/)
 
-A few resources to get you started if this is your first Flutter project:
+## 課題
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# repository_riverpod_mvvm
+- プレゼンテーション層の役割の理解不足
