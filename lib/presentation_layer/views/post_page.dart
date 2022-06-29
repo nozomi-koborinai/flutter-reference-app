@@ -40,9 +40,43 @@ class _PostPageState extends ConsumerState<PostPage> {
         backgroundColor: Theme.of(context).canvasColor,
         elevation: 2,
       ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.chat_bubble_outline_outlined),
-        onPressed: () => _vm.onPost(context),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextFormField(
+                  controller: _vm.contentController,
+                  enabled: true,
+                  style: const TextStyle(color: Colors.black),
+                  obscureText: false,
+                  maxLines: 1,
+                  decoration: InputDecoration(
+                    labelText: _vm.contentLabel,
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextFormField(
+                  controller: _vm.accountIdController,
+                  enabled: true,
+                  style: const TextStyle(color: Colors.black),
+                  obscureText: false,
+                  maxLines: 1,
+                  decoration: InputDecoration(
+                    labelText: _vm.accountIdLabel,
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                  onPressed: () => _vm.onPost(context,
+                      _vm.contentController.text, _vm.accountIdController.text),
+                  child: Text(_vm.pageTitle)),
+            )
+          ],
+        ),
       ),
     );
   }

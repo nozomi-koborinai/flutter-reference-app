@@ -41,12 +41,10 @@ class TimeLinePageViewModel {
 
   //投稿ボタン押下時
   Future<void> onPost(BuildContext context) async {
-    await postRepository.addPost(const Post('呪術廻戦アニメ２期待てない', 'cobochan'));
-
-    // Navigator.push(
-    //     context,
-    //     MaterialPageRoute(
-    //         builder: (context) =>
-    //             PostPage(PostPageViewModel(PostRepository.instance))));
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) =>
+                PostPage(PostPageViewModel(PostRepository.instance))));
   }
 }

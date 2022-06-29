@@ -10,6 +10,12 @@ class PostPageViewModel {
 
   //providers
   final titleProvider = Provider<String>((ref) => '投稿');
+  final contentLabelProvider = Provider<String>((ref) => 'content');
+  final accountIdLabelProvider = Provider<String>((ref) => 'AccountId');
+  final contentControllerStateProvider =
+      StateProvider.autoDispose((ref) => TextEditingController(text: ''));
+  final accountIdControllerStateProvider =
+      StateProvider.autoDispose((ref) => TextEditingController(text: ''));
 
   //constructor
   //ViewModelインスタンス化時にViewModel内で使用するRepositoryインスタンスをDI
@@ -21,14 +27,19 @@ class PostPageViewModel {
     _ref = ref;
   }
 
-  ///各Providerのgetter
+  //各Providerのgetter
   get pageTitle => _ref.watch(titleProvider).toString();
+  get contentLabel => _ref.watch(contentLabelProvider).toString();
+  get accountIdLabel => _ref.watch(accountIdLabelProvider).toString();
+  get contentController =>
+      _ref.watch(contentControllerStateProvider.state).state;
+  get accountIdController =>
+      _ref.watch(accountIdControllerStateProvider.state).state;
 
   //投稿ボタン押下時
-  Future<void> onPost(BuildContext context) async {
+  Future<void> onPost(
+      BuildContext context, String content, String accountId) async {
+    await postRepository.addPost(Post(content, accountId));
     Navigator.pop(context);
-
-    //ここはテストだから後で消す
-    // await postRepository.addPost(const Post('6', '投稿したぜ', 'flutter'));
   }
 }
