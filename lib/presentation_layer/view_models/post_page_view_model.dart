@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:repository_riverpod_mvvm/domain_layer/models/post.dart';
-
 import '../../domain_layer/interfaces/i_post_repository.dart';
+
+//providers
+final titleProvider = Provider<String>((ref) => '投稿');
+final contentLabelProvider = Provider<String>((ref) => 'content');
+final accountIdLabelProvider = Provider<String>((ref) => 'AccountId');
+final contentControllerStateProvider =
+    StateProvider.autoDispose((ref) => TextEditingController(text: ''));
+final accountIdControllerStateProvider =
+    StateProvider.autoDispose((ref) => TextEditingController(text: ''));
 
 class PostPageViewModel {
   late WidgetRef _ref;
   final IPostRepository postRepository;
-
-  //providers
-  final titleProvider = Provider<String>((ref) => '投稿');
-  final contentLabelProvider = Provider<String>((ref) => 'content');
-  final accountIdLabelProvider = Provider<String>((ref) => 'AccountId');
-  final contentControllerStateProvider =
-      StateProvider.autoDispose((ref) => TextEditingController(text: ''));
-  final accountIdControllerStateProvider =
-      StateProvider.autoDispose((ref) => TextEditingController(text: ''));
 
   //constructor
   //ViewModelインスタンス化時にViewModel内で使用するRepositoryインスタンスをDI
@@ -27,7 +26,7 @@ class PostPageViewModel {
     _ref = ref;
   }
 
-  //各Providerのgetter
+  //各Providerのgetter（viewとのバインド用)
   get pageTitle => _ref.watch(titleProvider).toString();
   get contentLabel => _ref.watch(contentLabelProvider).toString();
   get accountIdLabel => _ref.watch(accountIdLabelProvider).toString();

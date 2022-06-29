@@ -1,14 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:repository_riverpod_mvvm/main.dart';
+import 'package:repository_riverpod_mvvm/presentation_layer/common_widgets/common_app_bar.dart';
 import 'package:repository_riverpod_mvvm/presentation_layer/view_models/post_page_view_model.dart';
-import 'package:repository_riverpod_mvvm/presentation_layer/view_models/time_line_page_view_model.dart';
-
-import '../../domain_layer/models/post.dart';
 
 class PostPage extends ConsumerStatefulWidget {
   PostPageViewModel vm;
@@ -25,21 +18,15 @@ class _PostPageState extends ConsumerState<PostPage> {
   void initState() {
     super.initState();
     _vm = widget.vm;
+
+    //ViewModelの初期化処理としてWidgetRefを渡してあげる
     _vm.init(ref);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          _vm.pageTitle,
-          style: const TextStyle(color: Colors.black),
-        ),
-        backgroundColor: Theme.of(context).canvasColor,
-        elevation: 2,
-      ),
+      appBar: CommonAppBar(_vm.pageTitle),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
