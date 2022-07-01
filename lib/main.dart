@@ -27,8 +27,6 @@ class MyApp extends StatelessWidget {
       ),
 
       //タイムラインページを表示
-      //view生成時、対応するViewModelを渡す
-      //さらにViewModel生成時、内部でコールするRepositoryのインスタンスを渡す
       home: const TimeLinePage(),
     );
   }
