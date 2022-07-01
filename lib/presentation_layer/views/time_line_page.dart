@@ -1,39 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:repository_riverpod_mvvm/presentation_layer/common_widgets/common_app_bar.dart';
-import 'package:repository_riverpod_mvvm/presentation_layer/view_models/time_line_page_view_model.dart';
+import 'package:repository_riverpod_mvvm/domain_layer/providers.dart';
 
 import '../../domain_layer/models/post.dart';
 
-class TimeLinePage extends ConsumerStatefulWidget {
-  TimeLinePageViewModel vm;
-  TimeLinePage(this.vm, {Key? key}) : super(key: key);
+class TimeLinePage extends ConsumerWidget {
+  const TimeLinePage({Key? key}) : super(key: key);
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _TimeLinePageState();
-}
-
-class _TimeLinePageState extends ConsumerState<TimeLinePage> {
-  late TimeLinePageViewModel _vm;
-
-  @override
-  void initState() {
-    super.initState();
-    _vm = widget.vm;
-
-    //ViewModelの初期化処理としてWidgetRefを渡してあげる
-    _vm.init(ref);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final AsyncValue<List<Post>> asyncValue = _vm.posts;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final vm = ref.watch(timeLinePageViewModelProvider);
+    vm.init(ref);
+    final AsyncValue<List<Post>> asyncValue = vm.posts;
 
     return Scaffold(
-      appBar: CommonAppBar(_vm.pageTitle),
+      appBar: CommonAppBar(vm.pageTitle),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.chat_bubble_outline_outlined),
-        onPressed: () => _vm.onPost(context),
+        onPressed: () => vm.onPost(context),
       ),
       body: Center(
         child: asyncValue.when(

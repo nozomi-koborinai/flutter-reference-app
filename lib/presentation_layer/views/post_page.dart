@@ -2,31 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:repository_riverpod_mvvm/presentation_layer/common_widgets/common_app_bar.dart';
 import 'package:repository_riverpod_mvvm/presentation_layer/view_models/post_page_view_model.dart';
+import 'package:repository_riverpod_mvvm/domain_layer/providers.dart';
 
-class PostPage extends ConsumerStatefulWidget {
-  PostPageViewModel vm;
-  PostPage(this.vm, {Key? key}) : super(key: key);
-
-  @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _PostPageState();
-}
-
-class _PostPageState extends ConsumerState<PostPage> {
-  late PostPageViewModel _vm;
+class PostPage extends ConsumerWidget {
+  const PostPage({Key? key}) : super(key: key);
 
   @override
-  void initState() {
-    super.initState();
-    _vm = widget.vm;
-
-    //ViewModelの初期化処理としてWidgetRefを渡してあげる
-    _vm.init(ref);
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final vm = ref.watch(postPageViewModelProvider);
+    vm.init(ref);
     return Scaffold(
-      appBar: CommonAppBar(_vm.pageTitle),
+      appBar: CommonAppBar(vm.pageTitle),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -34,33 +20,32 @@ class _PostPageState extends ConsumerState<PostPage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
-                  controller: _vm.contentController,
+                  controller: vm.contentController,
                   enabled: true,
                   style: const TextStyle(color: Colors.black),
                   obscureText: false,
                   maxLines: 1,
                   decoration: InputDecoration(
-                    labelText: _vm.contentLabel,
+                    labelText: vm.contentLabel,
                   )),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
-                  controller: _vm.accountIdController,
+                  controller: vm.accountIdController,
                   enabled: true,
                   style: const TextStyle(color: Colors.black),
                   obscureText: false,
                   maxLines: 1,
                   decoration: InputDecoration(
-                    labelText: _vm.accountIdLabel,
+                    labelText: vm.accountIdLabel,
                   )),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
-                  onPressed: () => _vm.onPost(context,
-                      _vm.contentController.text, _vm.accountIdController.text),
-                  child: Text(_vm.pageTitle)),
+                  onPressed: () => vm.onPost(context),
+                  child: Text(vm.pageTitle)),
             )
           ],
         ),
