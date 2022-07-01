@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:repository_riverpod_mvvm/data_layer/post_repository.dart';
-import 'package:repository_riverpod_mvvm/presentation_layer/view_models/time_line_page_view_model.dart';
 import 'package:repository_riverpod_mvvm/presentation_layer/views/time_line_page.dart';
+import 'package:repository_riverpod_mvvm/domain_layer/providers.dart';
 
 void main() async {
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(
+    ProviderScope(
+      overrides: [
+        postRepositoryProvider
+            .overrideWithProvider(firebasePostRepositoryProvider),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -22,7 +29,7 @@ class MyApp extends StatelessWidget {
       //タイムラインページを表示
       //view生成時、対応するViewModelを渡す
       //さらにViewModel生成時、内部でコールするRepositoryのインスタンスを渡す
-      home: TimeLinePage(TimeLinePageViewModel(PostRepository())),
+      home: const TimeLinePage(),
     );
   }
 }
