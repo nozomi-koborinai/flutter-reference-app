@@ -1,6 +1,6 @@
 # repository_riverpod_mvvm
 
-AndreaさんのRepositoryパターンの記事を参考にしたアーキテクチャ
+AndreaさんのRepositoryパターンの記事を参考にしたRiverpodアーキテクチャ学習
 
 - [`すさ`さんにソースコードレビューをしていただいています！](https://github.com/nzmgfdprs/repository_riverpod_mvvm/issues/1)
 
