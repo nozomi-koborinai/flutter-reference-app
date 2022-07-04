@@ -4,6 +4,10 @@ AndreaさんのRepositoryパターンの記事を参考にしたRiverpodアー�
 
 - [`すさ`さんにコードレビューをしていただきました](https://github.com/nzmgfdprs/repository_riverpod_mvvm/issues/1)
 
+## Repositoryアーキテクチャ概要図
+<img width="400" alt="repository_architecture" src="https://user-images.githubusercontent.com/39579511/177194774-e384efc3-c631-43eb-b1f9-8d68d1a76b82.jpeg">
+
+
 ## アプリ概要：超簡易掲示板
 
 https://riverpod-mvvm-93799.web.app
