@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:repository_riverpod_mvvm/data_layer/infrastructure_providers.dart';
 import 'package:repository_riverpod_mvvm/domain_layer/interfaces/i_post_repository.dart';
-import 'package:repository_riverpod_mvvm/domain_layer/models/post.dart';
+import 'package:repository_riverpod_mvvm/presentation_layer/presentation_providers.dart';
 import 'package:repository_riverpod_mvvm/presentation_layer/views/post_page.dart';
-import 'package:repository_riverpod_mvvm/domain_layer/providers.dart';
 
 class TimeLinePageViewModel {
   late WidgetRef _ref;

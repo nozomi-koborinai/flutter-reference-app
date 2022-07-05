@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:repository_riverpod_mvvm/presentation_layer/common_widgets/common_app_bar.dart';
-import 'package:repository_riverpod_mvvm/domain_layer/providers.dart';
+import 'package:repository_riverpod_mvvm/presentation_layer/presentation_providers.dart';
 
 import '../../domain_layer/models/post.dart';
 
