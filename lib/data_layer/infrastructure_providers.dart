@@ -31,7 +31,7 @@ final firebasePostRepositoryProvider = Provider<IPostRepository>(
   ),
 );
 
-final postListStreamProvider = StreamProvider.autoDispose((ref) {
+final postListStreamProvider = StreamProvider((ref) {
   return ref.watch(postsCollectionRefProvider).snapshots().map((snapshot) {
     final list = snapshot.docs.map((doc) {
       final jsonObject = PostDocument.fromJson(doc.data());

@@ -6,21 +6,15 @@ import 'package:repository_riverpod_mvvm/presentation_layer/presentation_provide
 import 'package:repository_riverpod_mvvm/presentation_layer/views/post_page.dart';
 
 class TimeLinePageViewModel {
-  late WidgetRef _ref;
   final IPostRepository postRepository;
+  final ProviderRef ref;
 
   //ViewModelインスタンス化時にViewModel内で使用するRepositoryインスタンスをDI
-  TimeLinePageViewModel(this.postRepository);
-
-  //初期化
-  //view側からWidgetRefをもらう
-  void init(WidgetRef ref) {
-    _ref = ref;
-  }
+  TimeLinePageViewModel({required this.postRepository, required this.ref});
 
   //各Providerのgetter（viewとのバインド用）
-  get pageTitle => _ref.watch(timeLineTitleProvider).toString();
-  get posts => _ref.watch(postListStreamProvider);
+  get pageTitle => ref.watch(timeLineTitleProvider).toString();
+  get posts => ref.watch(postListStreamProvider);
 
   ///投稿ボタン押下時
   Future<void> onPost(BuildContext context) async {

@@ -9,7 +9,6 @@ class PostPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final vm = ref.watch(postPageViewModelProvider);
-    vm.init(ref);
     return Scaffold(
       appBar: CommonAppBar(vm.pageTitle),
       body: Padding(
