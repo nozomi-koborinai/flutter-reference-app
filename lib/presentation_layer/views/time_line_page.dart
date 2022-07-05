@@ -11,7 +11,6 @@ class TimeLinePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final vm = ref.watch(timeLinePageViewModelProvider);
-    vm.init(ref);
     final AsyncValue<List<Post>> asyncValue = vm.posts;
 
     return Scaffold(

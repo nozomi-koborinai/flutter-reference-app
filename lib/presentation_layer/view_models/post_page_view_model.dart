@@ -5,27 +5,21 @@ import 'package:repository_riverpod_mvvm/presentation_layer/presentation_provide
 import '../../domain_layer/interfaces/i_post_repository.dart';
 
 class PostPageViewModel {
-  late WidgetRef _ref;
   final IPostRepository postRepository;
+  final ProviderRef ref;
 
   //constructor
   //ViewModelインスタンス化時にViewModel内で使用するRepositoryインスタンスをDI
-  PostPageViewModel(this.postRepository);
-
-  //初期化
-  //view側からWidgetRefをもらう
-  void init(WidgetRef ref) {
-    _ref = ref;
-  }
+  PostPageViewModel({required this.postRepository, required this.ref});
 
   //各Providerのgetter（viewとのバインド用)
-  get pageTitle => _ref.watch(postTitleProvider).toString();
-  get contentLabel => _ref.watch(contentLabelProvider).toString();
-  get accountIdLabel => _ref.watch(accountIdLabelProvider).toString();
+  get pageTitle => ref.watch(postTitleProvider).toString();
+  get contentLabel => ref.watch(contentLabelProvider).toString();
+  get accountIdLabel => ref.watch(accountIdLabelProvider).toString();
   get contentController =>
-      _ref.watch(contentControllerStateProvider.state).state;
+      ref.watch(contentControllerStateProvider.state).state;
   get accountIdController =>
-      _ref.watch(accountIdControllerStateProvider.state).state;
+      ref.watch(accountIdControllerStateProvider.state).state;
 
   //投稿ボタン押下時
   Future<void> onPost(BuildContext context) async {
