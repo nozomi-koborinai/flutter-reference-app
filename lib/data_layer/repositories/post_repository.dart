@@ -5,15 +5,14 @@ import 'package:repository_riverpod_mvvm/utils/app_values.dart';
 
 class PostRepository implements IPostRepository {
   PostRepository({
-    required this.store,
+    required this.collectionRef,
   });
 
-  final FirebaseFirestore store;
+  final CollectionReference<Map<String, dynamic>> collectionRef;
 
   ///投稿新規追加
   @override
-  Future<void> addPost(Post newPost) async => await store
-      .collection(collectionNamePosts)
+  Future<void> addPost(Post newPost) async => await collectionRef
       .add({'content': newPost.content, 'account_id': newPost.accountId});
 
   ///ユーザIdに紐づく投稿情報を取得

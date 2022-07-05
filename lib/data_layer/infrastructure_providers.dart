@@ -11,23 +11,28 @@ final postRepositoryProvider = Provider<IPostRepository>(
   (_) => throw UnimplementedError(),
 );
 
-/// Firestoreのインスタンスを返却
+/// Firestoreのインスタンスを保持するプロバイダ
 final firebaseFirestoreProvider = Provider((_) => FirebaseFirestore.instance);
 
-/// PostRepositoryのインスタンスを返却
+///投稿コレクション名のプロバイダ
+final postsCollectionNameProvider = Provider((_) => 'posts');
+
+///投稿コレクションReferenceのプロバイダ
+final postsCollectionRefProvider =
+    Provider<CollectionReference<Map<String, dynamic>>>((ref) => ref
+        .watch(firebaseFirestoreProvider)
+        .collection(ref.watch(postsCollectionNameProvider)));
+
+/// PostRepositoryのインスタンスを保持するプロバイダ
 final firebasePostRepositoryProvider = Provider<IPostRepository>(
   (ref) => PostRepository(
-    // PostRepositoryインスタンス生成時、FirestoreインスタンスをDI
-    store: ref.watch(firebaseFirestoreProvider),
+    // PostRepositoryインスタンス生成時、投稿コレクションをDI
+    collectionRef: ref.watch(postsCollectionRefProvider),
   ),
 );
 
 final postListStreamProvider = StreamProvider.autoDispose((ref) {
-  return ref
-      .watch(firebaseFirestoreProvider)
-      .collection(collectionNamePosts)
-      .snapshots()
-      .map((snapshot) {
+  return ref.watch(postsCollectionRefProvider).snapshots().map((snapshot) {
     final list = snapshot.docs.map((doc) {
       final jsonObject = PostDocument.fromJson(doc.data());
       return Post(jsonObject.content, jsonObject.accountId);
