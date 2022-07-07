@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:repository_riverpod_mvvm/data_layer/models/post_document.dart';
-import 'package:repository_riverpod_mvvm/data_layer/repositories/post_repository.dart';
+import 'package:repository_riverpod_mvvm/infrastructure_layer/models/post_document.dart';
+import 'package:repository_riverpod_mvvm/infrastructure_layer/repositories/post_repository.dart';
 import 'package:repository_riverpod_mvvm/domain_layer/interfaces/i_post_repository.dart';
 import 'package:repository_riverpod_mvvm/domain_layer/models/post.dart';
 

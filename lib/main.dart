@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:repository_riverpod_mvvm/data_layer/infrastructure_providers.dart';
+import 'package:repository_riverpod_mvvm/infrastructure_layer/infrastructure_providers.dart';
 import 'package:repository_riverpod_mvvm/presentation_layer/views/time_line_page.dart';
 
 void main() async {
