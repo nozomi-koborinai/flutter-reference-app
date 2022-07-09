@@ -20,7 +20,9 @@ Post _$PostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Post {
+  @JsonKey(name: 'content')
   String get content => throw _privateConstructorUsedError;
+  @JsonKey(name: 'account_id')
   String get accountId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -32,7 +34,9 @@ mixin _$Post {
 abstract class $PostCopyWith<$Res> {
   factory $PostCopyWith(Post value, $Res Function(Post) then) =
       _$PostCopyWithImpl<$Res>;
-  $Res call({String content, String accountId});
+  $Res call(
+      {@JsonKey(name: 'content') String content,
+      @JsonKey(name: 'account_id') String accountId});
 }
 
 /// @nodoc
@@ -66,7 +70,9 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
   factory _$$_PostCopyWith(_$_Post value, $Res Function(_$_Post) then) =
       __$$_PostCopyWithImpl<$Res>;
   @override
-  $Res call({String content, String accountId});
+  $Res call(
+      {@JsonKey(name: 'content') String content,
+      @JsonKey(name: 'account_id') String accountId});
 }
 
 /// @nodoc
@@ -99,13 +105,16 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Post with DiagnosticableTreeMixin implements _Post {
-  const _$_Post(this.content, this.accountId);
+  const _$_Post(@JsonKey(name: 'content') this.content,
+      @JsonKey(name: 'account_id') this.accountId);
 
   factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
 
   @override
+  @JsonKey(name: 'content')
   final String content;
   @override
+  @JsonKey(name: 'account_id')
   final String accountId;
 
   @override
@@ -150,13 +159,16 @@ class _$_Post with DiagnosticableTreeMixin implements _Post {
 }
 
 abstract class _Post implements Post {
-  const factory _Post(final String content, final String accountId) = _$_Post;
+  const factory _Post(@JsonKey(name: 'content') final String content,
+      @JsonKey(name: 'account_id') final String accountId) = _$_Post;
 
   factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
 
   @override
+  @JsonKey(name: 'content')
   String get content => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'account_id')
   String get accountId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

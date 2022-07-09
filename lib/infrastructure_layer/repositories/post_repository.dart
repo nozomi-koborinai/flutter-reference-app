@@ -12,8 +12,8 @@ class PostRepository implements IPostRepository {
 
   ///投稿新規追加
   @override
-  Future<void> addPost(Post newPost) async => await collectionRef
-      .add({'content': newPost.content, 'account_id': newPost.accountId});
+  Future<void> addPost(Post newPost) async =>
+      await collectionRef.add(newPost.toJson());
 
   ///ユーザIdに紐づく投稿情報を取得
   @override
