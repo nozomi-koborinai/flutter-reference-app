@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:repository_riverpod_mvvm/domain_layer/domain_providers.dart';
 import 'package:repository_riverpod_mvvm/domain_layer/interfaces/i_post_repository.dart';
 import 'package:repository_riverpod_mvvm/infrastructure_layer/infrastructure_providers.dart';
 import 'package:repository_riverpod_mvvm/presentation_layer/presentation_providers.dart';
 import 'package:repository_riverpod_mvvm/presentation_layer/views/post_page.dart';
+
+/// TimeLinePageViewModelのインスタンスを返却
+final timeLinePageViewModelProvider = Provider<TimeLinePageViewModel>((ref) {
+  return TimeLinePageViewModel(
+      postRepository: ref.watch(postRepositoryProvider), ref: ref);
+});
 
 class TimeLinePageViewModel {
   final IPostRepository postRepository;
@@ -13,7 +20,7 @@ class TimeLinePageViewModel {
   TimeLinePageViewModel({required this.postRepository, required this.ref});
 
   //各Providerのgetter（viewとのバインド用）
-  get pageTitle => ref.watch(timeLineTitleProvider).toString();
+  get pageTitle => ref.read(timeLineTitleProvider).toString();
   get posts => ref.watch(postListStreamProvider);
 
   ///投稿ボタン押下時

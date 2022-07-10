@@ -5,11 +5,6 @@ import 'package:repository_riverpod_mvvm/infrastructure_layer/repositories/post_
 import 'package:repository_riverpod_mvvm/domain_layer/interfaces/i_post_repository.dart';
 import 'package:repository_riverpod_mvvm/domain_layer/models/post.dart';
 
-/// 必ずmainメソッドで本ProviderをOverrideすること！
-final postRepositoryProvider = Provider<IPostRepository>(
-  (_) => throw UnimplementedError(),
-);
-
 /// Firestoreのインスタンスを保持するプロバイダ
 final firebaseFirestoreProvider = Provider((_) => FirebaseFirestore.instance);
 
