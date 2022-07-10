@@ -1,13 +1,21 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:repository_riverpod_mvvm/domain_layer/domain_providers.dart';
 import 'package:repository_riverpod_mvvm/domain_layer/interfaces/i_post_repository.dart';
 import 'package:repository_riverpod_mvvm/domain_layer/models/post.dart';
 import 'package:repository_riverpod_mvvm/presentation_layer/view_models/post_page_view_model.dart';
 
+// // test用プロバイダ
+// /// PostRepositoryのインスタンスを保持するプロバイダ
+// final firebasePostRepositoryProvider = Provider<IPostRepository>((ref) {
+//   vm = ref.watch(postPageViewModelProvider);
+//   return MockPostRepository();
+// });
+
+late PostPageViewModel vm;
+
 void main() {
-  //タイムラインページをテスト
-  //モックアップをDIしたViewModelを用いる
-  PostPageViewModel postPageVM = PostPageViewModel(MockPostRepository());
+  // postRepositoryProvider.overrideWithProvider(firebasePostRepositoryProvider);
 }
 
 ///テスト用のRepositoryクラス
