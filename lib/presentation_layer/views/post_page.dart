@@ -42,7 +42,7 @@ class PostPage extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
-                  onPressed: () => vm.onPost(context),
+                  onPressed: () => vm.onPost(context: context),
                   child: Text(vm.pageTitle)),
             )
           ],

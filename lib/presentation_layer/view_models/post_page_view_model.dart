@@ -20,17 +20,21 @@ class PostPageViewModel {
   PostPageViewModel({required this.postRepository, required this.ref});
 
   // 各Providerのgetter（viewとのバインド用)
-  get pageTitle => ref.read(postTitleProvider).toString();
-  get contentLabel => ref.read(contentLabelProvider).toString();
-  get accountIdLabel => ref.read(accountIdLabelProvider).toString();
-  get contentController => ref.read(contentControllerStateProvider.state).state;
-  get accountIdController =>
-      ref.read(accountIdControllerStateProvider.state).state;
+  String get pageTitle => ref.read(postTitleProvider).toString();
+  String get contentLabel => ref.read(contentLabelProvider).toString();
+  String get accountIdLabel => ref.read(accountIdLabelProvider).toString();
+  TextEditingController get contentController => ref.read(contentControllerStateProvider.state).state;
+  TextEditingController get accountIdController => ref.read(accountIdControllerStateProvider.state).state;
+
+  // 各Providerのsetter
+  set contentController(TextEditingController contentController) => ref.read(contentControllerStateProvider.state).state = contentController;
+  set accountIdController(TextEditingController idController) => ref.read(accountIdControllerStateProvider.state).state = idController;
 
   /// 投稿ボタン押下時
-  Future<void> onPost(BuildContext context) async {
-    await postRepository
-        .addPost(Post(contentController.text, accountIdController.text));
-    Navigator.pop(context);
+  Future<void> onPost({required BuildContext? context}) async {
+    await postRepository.addPost(Post(contentController.text, accountIdController.text));
+    if(context != null) Navigator.pop(context);
   }
+
+  
 }
