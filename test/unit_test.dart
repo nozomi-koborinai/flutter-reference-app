@@ -13,12 +13,8 @@ final container = ProviderContainer(
 );
 
 void main() {
-  late PostPageViewModel vm;
-  late MockPostRepository mockRepo;
-  setUp(() => {
-    vm = container.read(data.postPageViewModelProvider),
-    mockRepo = vm.postRepository as MockPostRepository
-  });
+  final PostPageViewModel vm = container.read(data.postPageViewModelProvider);
+  final MockPostRepository mockRepo = vm.postRepository as MockPostRepository;
 
   test('test', () async => {
     vm.contentController = TextEditingController(text: 'contentをセット'),
