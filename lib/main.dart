@@ -4,7 +4,7 @@ import 'package:repository_riverpod_mvvm/domain_layer/domain_providers.dart';
 import 'package:repository_riverpod_mvvm/infrastructure_layer/infrastructure_providers.dart';
 import 'package:repository_riverpod_mvvm/presentation_layer/views/time_line_page.dart';
 
-void main() async {
+void main() {
   runApp(
     ProviderScope(
       overrides: [
