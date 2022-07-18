@@ -16,10 +16,10 @@ void main() {
   final PostPageViewModel vm = container.read(data.postPageViewModelProvider);
   final MockPostRepository mockRepo = vm.postRepository as MockPostRepository;
 
-  test('test', () async => {
-    vm.contentController = TextEditingController(text: 'contentをセット'),
-    vm.accountIdController = TextEditingController(text: 'accountIdをセット'),
+  test('投稿ボタン押下時', () async => {
+    vm.contentController = TextEditingController(text: 'contentです'),
+    vm.accountIdController = TextEditingController(text: 'accountIdです'),
     await vm.onPost(context: null),
-    expect(mockRepo.data['0']!.accountId, 'accountIdをセット')
+    expect(mockRepo.data['0']!.accountId, 'accountIdです')
   });
 }

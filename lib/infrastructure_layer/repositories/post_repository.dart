@@ -13,12 +13,11 @@ class PostRepository implements IPostRepository {
   ///投稿新規追加
   @override
   Future<void> addPost(Post newPost) async =>
-      await collectionRef.add(newPost.toJson());
+await collectionRef.add(newPost.toJson());
 
   ///ユーザIdに紐づく投稿情報を取得
   @override
   Future<List<Post>> fetchPostFromUserId(String id) async {
-    //TODO：あとから実装
-    return null!;
+    throw UnimplementedError('未実装');
   }
 }
