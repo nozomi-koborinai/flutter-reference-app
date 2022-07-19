@@ -18,8 +18,8 @@ https://riverpod-mvvm-93799.web.app
 
 - [Flutter App Architecture: The Repository Pattern](https://codewithandrea.com/articles/flutter-repository-pattern/)
 
-## 課題
+## 課題（2022/07/11 解決済）
 
-- RiverpodのDI機能の理解不足
-- レイヤー間の依存関係の理解不足
-- アプリケーション層の役割の理解不足
+- ~~RiverpodのDI機能の理解不足~~ 
+- ~~レイヤー間の依存関係の理解不足~~ 
+- ~~アプリケーション層の役割の理解不足~~ 
