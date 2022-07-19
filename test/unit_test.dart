@@ -4,7 +4,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:repository_riverpod_mvvm/domain_layer/domain_providers.dart';
 import 'package:repository_riverpod_mvvm/presentation_layer/view_models/post_page_view_model.dart';
 import 'data/mock_post_repository.dart';
-import 'data/test_providers.dart' as data;
 
 final container = ProviderContainer(
   overrides: [
@@ -13,7 +12,7 @@ final container = ProviderContainer(
 );
 
 void main() {
-  final PostPageViewModel vm = container.read(data.postPageViewModelProvider);
+  final PostPageViewModel vm = container.read(postPageViewModelProvider);
   final MockPostRepository mockRepo = vm.postRepository as MockPostRepository;
 
   test('投稿ボタン押下時', () async => {
