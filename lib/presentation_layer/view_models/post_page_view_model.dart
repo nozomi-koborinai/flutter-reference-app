@@ -26,10 +26,6 @@ class PostPageViewModel {
   TextEditingController get contentController => ref.read(contentControllerStateProvider.state).state;
   TextEditingController get accountIdController => ref.read(accountIdControllerStateProvider.state).state;
 
-  // 各Providerのsetter
-  set contentController(TextEditingController contentController) => ref.read(contentControllerStateProvider.state).state = contentController;
-  set accountIdController(TextEditingController idController) => ref.read(accountIdControllerStateProvider.state).state = idController;
-
   /// 投稿ボタン押下時
   Future<void> onPost({required BuildContext? context}) async {
     addPost(Post(content: contentController.text, accountId: accountIdController.text));
