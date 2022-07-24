@@ -23,7 +23,7 @@ class TimeLinePageViewModel {
   get pageTitle => ref.read(timeLineTitleProvider).toString();
   get posts => ref.watch(postListStreamProvider);
 
-  ///投稿ボタン押下時
+  /// 投稿ボタン押下時
   Future<void> onPost(BuildContext context) async {
     Navigator.push(
       context,
@@ -31,5 +31,10 @@ class TimeLinePageViewModel {
         builder: (context) => const PostPage(),
       ),
     );
+  }
+
+  /// 削除ボタン押下時
+  Future<void> onDelete(String id) async {
+    postRepository.deletePostFromId(id);
   }
 }

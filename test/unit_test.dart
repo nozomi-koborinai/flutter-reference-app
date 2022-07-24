@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:repository_riverpod_mvvm/domain_layer/domain_providers.dart';
@@ -17,7 +16,7 @@ void main() {
   final MockPostRepository mockRepo = vm.postRepository as MockPostRepository;
 
   test('投稿ボタン押下時', () async => {
-    await vm.addPost(const Post('contentです', 'accountIdです')),
+    await vm.addPost(const Post(content: 'contentです', accountId: 'accountIdです')),
     expect(mockRepo.data['0']!.accountId, 'accountIdです')
   });
 }

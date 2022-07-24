@@ -7,11 +7,13 @@ part of 'post.dart';
 // **************************************************************************
 
 _$_Post _$$_PostFromJson(Map<String, dynamic> json) => _$_Post(
-      json['content'] as String,
-      json['account_id'] as String,
+      id: json['id'] as String?,
+      content: json['content'] as String,
+      accountId: json['accountId'] as String,
     );
 
 Map<String, dynamic> _$$_PostToJson(_$_Post instance) => <String, dynamic>{
+      'id': instance.id,
       'content': instance.content,
-      'account_id': instance.accountId,
+      'accountId': instance.accountId,
     };
