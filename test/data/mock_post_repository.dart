@@ -33,4 +33,9 @@ class MockPostRepository implements IPostRepository {
     // List<Post> dummyPostList = dummyPostStream.toList() as List<Post>;
     // return dummyPostList.where((element) => element.accountId == id).toList();
   }
+  
+  @override
+  Future<void> deletePostFromId(String id) {
+    throw UnimplementedError();
+  }
 }

@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:repository_riverpod_mvvm/infrastructure_layer/dtos/post_document.dart';
 import 'package:repository_riverpod_mvvm/infrastructure_layer/repositories/post_repository.dart';
 import 'package:repository_riverpod_mvvm/domain_layer/interfaces/i_post_repository.dart';
-import 'package:repository_riverpod_mvvm/domain_layer/models/post.dart';
+import 'package:repository_riverpod_mvvm/utils/convert_utils.dart';
 
 /// Firestoreのインスタンスを保持するプロバイダ
 final firebaseFirestoreProvider = Provider((_) => FirebaseFirestore.instance);
@@ -12,10 +12,9 @@ final firebaseFirestoreProvider = Provider((_) => FirebaseFirestore.instance);
 final postsCollectionNameProvider = Provider((_) => 'posts');
 
 ///投稿コレクションReferenceのプロバイダ
-final postsCollectionRefProvider =
-    Provider<CollectionReference<Map<String, dynamic>>>((ref) => ref
-        .watch(firebaseFirestoreProvider)
-        .collection(ref.watch(postsCollectionNameProvider)));
+final postsCollectionRefProvider = Provider<CollectionReference<Map<String, dynamic>>>(
+  (ref) => ref.watch(firebaseFirestoreProvider).collection(ref.watch(postsCollectionNameProvider))
+);
 
 /// PostRepositoryのインスタンスを保持するプロバイダ
 final firebasePostRepositoryProvider = Provider<IPostRepository>(
@@ -25,11 +24,12 @@ final firebasePostRepositoryProvider = Provider<IPostRepository>(
   ),
 );
 
+/// 投稿一覧StreamProvider
 final postListStreamProvider = StreamProvider((ref) {
   return ref.watch(postsCollectionRefProvider).snapshots().map((snapshot) {
     final list = snapshot.docs.map((doc) {
       final jsonObject = PostDocument.fromJson(doc.data());
-      return Post(jsonObject.content, jsonObject.accountId);
+      return ConvertUtils.instance.toPost(postDoc: jsonObject, id: doc.id);
     }).toList();
     return list;
   });

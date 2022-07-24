@@ -32,7 +32,7 @@ class PostPageViewModel {
 
   /// 投稿ボタン押下時
   Future<void> onPost({required BuildContext? context}) async {
-    addPost(Post(contentController.text, accountIdController.text));
+    addPost(Post(content: contentController.text, accountId: accountIdController.text));
     if(context != null) Navigator.pop(context);
   }
 

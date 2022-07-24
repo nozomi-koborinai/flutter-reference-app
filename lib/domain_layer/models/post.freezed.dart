@@ -20,9 +20,8 @@ Post _$PostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Post {
-  @JsonKey(name: 'content')
+  String? get id => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
-  @JsonKey(name: 'account_id')
   String get accountId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,9 +33,7 @@ mixin _$Post {
 abstract class $PostCopyWith<$Res> {
   factory $PostCopyWith(Post value, $Res Function(Post) then) =
       _$PostCopyWithImpl<$Res>;
-  $Res call(
-      {@JsonKey(name: 'content') String content,
-      @JsonKey(name: 'account_id') String accountId});
+  $Res call({String? id, String content, String accountId});
 }
 
 /// @nodoc
@@ -49,10 +46,15 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? content = freezed,
     Object? accountId = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       content: content == freezed
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
@@ -70,9 +72,7 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
   factory _$$_PostCopyWith(_$_Post value, $Res Function(_$_Post) then) =
       __$$_PostCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {@JsonKey(name: 'content') String content,
-      @JsonKey(name: 'account_id') String accountId});
+  $Res call({String? id, String content, String accountId});
 }
 
 /// @nodoc
@@ -86,15 +86,20 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? content = freezed,
     Object? accountId = freezed,
   }) {
     return _then(_$_Post(
-      content == freezed
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      content: content == freezed
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      accountId == freezed
+      accountId: accountId == freezed
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as String,
@@ -105,21 +110,20 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Post with DiagnosticableTreeMixin implements _Post {
-  const _$_Post(@JsonKey(name: 'content') this.content,
-      @JsonKey(name: 'account_id') this.accountId);
+  const _$_Post({this.id, required this.content, required this.accountId});
 
   factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
 
   @override
-  @JsonKey(name: 'content')
+  final String? id;
+  @override
   final String content;
   @override
-  @JsonKey(name: 'account_id')
   final String accountId;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Post(content: $content, accountId: $accountId)';
+    return 'Post(id: $id, content: $content, accountId: $accountId)';
   }
 
   @override
@@ -127,6 +131,7 @@ class _$_Post with DiagnosticableTreeMixin implements _Post {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'Post'))
+      ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('content', content))
       ..add(DiagnosticsProperty('accountId', accountId));
   }
@@ -136,6 +141,7 @@ class _$_Post with DiagnosticableTreeMixin implements _Post {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Post &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.content, content) &&
             const DeepCollectionEquality().equals(other.accountId, accountId));
   }
@@ -144,6 +150,7 @@ class _$_Post with DiagnosticableTreeMixin implements _Post {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(content),
       const DeepCollectionEquality().hash(accountId));
 
@@ -159,16 +166,18 @@ class _$_Post with DiagnosticableTreeMixin implements _Post {
 }
 
 abstract class _Post implements Post {
-  const factory _Post(@JsonKey(name: 'content') final String content,
-      @JsonKey(name: 'account_id') final String accountId) = _$_Post;
+  const factory _Post(
+      {final String? id,
+      required final String content,
+      required final String accountId}) = _$_Post;
 
   factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
 
   @override
-  @JsonKey(name: 'content')
+  String? get id => throw _privateConstructorUsedError;
+  @override
   String get content => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'account_id')
   String get accountId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

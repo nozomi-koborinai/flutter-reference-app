@@ -33,6 +33,9 @@ class TimeLinePage extends ConsumerWidget {
                           child: Icon(Icons.face_retouching_natural_sharp)),
                       title: Text(data[index].content),
                       subtitle: Text(data[index].accountId),
+                      trailing: IconButton(icon: const Icon(Icons.delete), 
+                                           onPressed: () => vm.onDelete(data[index].id!),
+                                ),
                     ),
                   );
                 },

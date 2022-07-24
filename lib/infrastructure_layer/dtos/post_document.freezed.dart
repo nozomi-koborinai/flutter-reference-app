@@ -96,11 +96,11 @@ class __$$_PostDocumentCopyWithImpl<$Res>
     Object? accountId = freezed,
   }) {
     return _then(_$_PostDocument(
-      content == freezed
+      content: content == freezed
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      accountId == freezed
+      accountId: accountId == freezed
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as String,
@@ -111,8 +111,9 @@ class __$$_PostDocumentCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PostDocument with DiagnosticableTreeMixin implements _PostDocument {
-  const _$_PostDocument(@JsonKey(name: 'content') this.content,
-      @JsonKey(name: 'account_id') this.accountId);
+  const _$_PostDocument(
+      {@JsonKey(name: 'content') required this.content,
+      @JsonKey(name: 'account_id') required this.accountId});
 
   factory _$_PostDocument.fromJson(Map<String, dynamic> json) =>
       _$$_PostDocumentFromJson(json);
@@ -166,8 +167,10 @@ class _$_PostDocument with DiagnosticableTreeMixin implements _PostDocument {
 }
 
 abstract class _PostDocument implements PostDocument {
-  const factory _PostDocument(@JsonKey(name: 'content') final String content,
-      @JsonKey(name: 'account_id') final String accountId) = _$_PostDocument;
+  const factory _PostDocument(
+          {@JsonKey(name: 'content') required final String content,
+          @JsonKey(name: 'account_id') required final String accountId}) =
+      _$_PostDocument;
 
   factory _PostDocument.fromJson(Map<String, dynamic> json) =
       _$_PostDocument.fromJson;

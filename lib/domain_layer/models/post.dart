@@ -6,10 +6,11 @@ part 'post.g.dart';
 
 @freezed
 class Post with _$Post {
-  const factory Post(
-    @JsonKey(name: 'content') String content,
-    @JsonKey(name: 'account_id') String accountId,
-  ) = _Post;
+  const factory Post({
+    String? id,
+    required String content,
+    required String accountId,
+  }) = _Post;
 
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
 }
