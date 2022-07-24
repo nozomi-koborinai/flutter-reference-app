@@ -27,9 +27,9 @@ class PostPageViewModel {
   TextEditingController get accountIdController => ref.read(accountIdControllerStateProvider.state).state;
 
   /// 投稿ボタン押下時
-  Future<void> onPost({required BuildContext? context}) async {
-    addPost(Post(content: contentController.text, accountId: accountIdController.text));
-    if(context != null) Navigator.pop(context);
+  Future<void> onPost(BuildContext context) async {
+    await addPost(Post(content: contentController.text, accountId: accountIdController.text));
+    Navigator.pop(context);
   }
 
   /// 投稿コレクションにドキュメント追加
