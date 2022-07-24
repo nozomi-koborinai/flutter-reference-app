@@ -8,7 +8,7 @@ class PostPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final vm = ref.watch(postPageViewModelProvider);
+    final vm = ref.read(postPageViewModelProvider);
     return Scaffold(
       appBar: CommonAppBar(vm.pageTitle),
       body: Padding(
@@ -42,7 +42,7 @@ class PostPage extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
-                  onPressed: () => vm.onPost(context: context),
+                  onPressed: () => vm.onPost(context),
                   child: Text(vm.pageTitle)),
             )
           ],

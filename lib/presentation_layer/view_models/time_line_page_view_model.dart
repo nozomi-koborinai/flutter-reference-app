@@ -25,7 +25,7 @@ class TimeLinePageViewModel {
 
   /// 投稿ボタン押下時
   Future<void> onPost(BuildContext context) async {
-    Navigator.push(
+    await Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => const PostPage(),
@@ -35,6 +35,6 @@ class TimeLinePageViewModel {
 
   /// 削除ボタン押下時
   Future<void> onDelete(String id) async {
-    postRepository.deletePostFromId(id);
+    await postRepository.deletePostFromId(id);
   }
 }
