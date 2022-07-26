@@ -11,10 +11,10 @@ final contentLabelProvider = Provider<String>((_) => 'content');
 final accountIdLabelProvider = Provider<String>((_) => 'AccountId');
 
 /// 本文テキストコントローラ
-final contentControllerStateProvider = StateProvider.autoDispose<TextEditingController>((_) => TextEditingController(text: ''));
+final contentControllerStateProvider = StateProvider<TextEditingController>((_) => TextEditingController(text: ''));
 
 /// アカウントIDテキストコントローラ
-final accountIdControllerStateProvider = StateProvider.autoDispose<TextEditingController>((_) => TextEditingController(text: ''));
+final accountIdControllerStateProvider = StateProvider<TextEditingController>((_) => TextEditingController(text: ''));
 
 /// タイムラインページタイトル
 final timeLineTitleProvider = Provider<String>((_) => 'タイムライン');
