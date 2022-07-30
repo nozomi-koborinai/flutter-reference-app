@@ -2,7 +2,9 @@
 
 AndreaさんのRepositoryパターンの記事を参考にしたRiverpodアーキテクチャ学習
 
-- [Flutter大学_共同勉強会に登壇しました！](https://vimeo.com/734039186/48cb6c3d03)
+- [Flutter大学_共同勉強会に登壇しました！](https://flutter-square.com/joint-study-session/)
+- [RiverpodのDI機能を用いてレイヤードアーキテクチャを構築してみた](https://flutter-square.com/riverpod-di-layered-architecture/)
+- [Flutter大学_発表動画](https://vimeo.com/734039186/48cb6c3d03)
 - [`すさ`さんにコードレビューをしていただきました](https://github.com/nzmgfdprs/repository_riverpod_mvvm/issues/1)
 
 ## Repositoryアーキテクチャ概要図
