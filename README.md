@@ -2,6 +2,7 @@
 
 AndreaさんのRepositoryパターンの記事を参考にしたRiverpodアーキテクチャ学習
 
+- [Flutter大学_共同勉強会に登壇しました！](https://vimeo.com/734039186/48cb6c3d03)
 - [`すさ`さんにコードレビューをしていただきました](https://github.com/nzmgfdprs/repository_riverpod_mvvm/issues/1)
 
 ## Repositoryアーキテクチャ概要図
