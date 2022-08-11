@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:repository_riverpod_mvvm/domain_layer/models/post.dart';
 import 'package:repository_riverpod_mvvm/infrastructure_layer/dtos/post_document.dart';
 import 'package:repository_riverpod_mvvm/infrastructure_layer/repositories/post_repository.dart';
 import 'package:repository_riverpod_mvvm/domain_layer/interfaces/i_post_repository.dart';
@@ -25,7 +26,7 @@ final firebasePostRepositoryProvider = Provider<IPostRepository>(
 );
 
 /// 投稿一覧StreamProvider
-final postListStreamProvider = StreamProvider((ref) {
+final StreamProvider<List<Post>> postListStreamProvider = StreamProvider<List<Post>>((ref) {
   return ref.watch(postsCollectionRefProvider).snapshots().map((snapshot) {
     final list = snapshot.docs.map((doc) {
       final jsonObject = PostDocument.fromJson(doc.data());
