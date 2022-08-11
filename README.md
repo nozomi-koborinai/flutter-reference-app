@@ -8,9 +8,10 @@ AndreaさんのRepositoryパターンの記事を参考にしたRiverpodアー�
 - [Flutter大学_発表スライド](https://docs.google.com/presentation/d/1u_nfbLkCHpVsX3TOpPchE-BqwYbySVk14QcRqjNZ45I/edit#slide=id.g1276827f2e_0_5)
 - [`すさ`さんにコードレビューをしていただきました](https://github.com/nzmgfdprs/repository_riverpod_mvvm/issues/1)
 
-## Repositoryアーキテクチャ概要図
-<img width="400" alt="repository_architecture" src="https://user-images.githubusercontent.com/39579511/177194774-e384efc3-c631-43eb-b1f9-8d68d1a76b82.jpeg">
+## Architecture
+<img width="942" alt="スクリーンショット 2022-07-31 4 58 18" src="https://user-images.githubusercontent.com/39579511/181994414-38131228-7350-49ec-a276-9a31d9905ea1.png">
 
+※今回はAndreaさんのRepositoryアーキテクチャをSimpleなものにしてレイヤードアーキテクチャを構築した。
 
 ## アプリ概要：超簡易掲示板
 
