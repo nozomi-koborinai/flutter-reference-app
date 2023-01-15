@@ -1,0 +1,77 @@
+{
+  "path": "cz-emoji",
+  "config": {
+    "cz-emoji": {
+      "subjectMaxLength": 72,
+      "skipQuestions": ["scope"],
+      "types": [
+        {
+          "name": "feat",
+          "code": "🚀 feat:",
+          "emoji": "🚀",
+          "description": "新しい機能"
+        },
+        {
+          "name": "fix",
+          "code": "🐛 fix:",
+          "emoji": "🐛",
+          "description": "バグの修正"
+        },
+        {
+          "name": "test",
+          "code": "💚 test:",
+          "emoji": "💚",
+          "description": "テスト"
+        },
+        {
+          "name": "chore",
+          "code": "🔧 chore:",
+          "emoji": "🔧",
+          "description": "ツール関連の修正"
+        },
+        {
+          "name": "upgrade",
+          "code": "📦️ upgrade:",
+          "emoji": "📦️",
+          "description": "SDKやライブラリのバージョンアップ"
+        },
+        {
+          "name": "refactor",
+          "code": "♻️ refactor:",
+          "emoji": "♻️",
+          "description": "リファクタリング"
+        },
+        {
+          "name": "docs",
+          "code": "📝 docs:",
+          "emoji": "📝",
+          "description": "ドキュメントのみの修正"
+        },
+        {
+          "name": "release",
+          "code": "🎉 release:",
+          "emoji": "🎉",
+          "description": "リリース"
+        },
+        {
+          "name": "perf",
+          "code": "🐎 perf:",
+          "emoji": "🐎",
+          "description": "パフォーマンス向上"
+        },
+        {
+          "name": "style",
+          "code": "✨ style:",
+          "emoji": "✨",
+          "description": "フォーマットのみの修正"
+        },
+        {
+          "name": "init",
+          "code": "🌱 init:",
+          "emoji": "🌱",
+          "description": "初回コミット"
+        }
+      ]
+    }
+  }
+}
