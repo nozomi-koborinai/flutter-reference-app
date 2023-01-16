@@ -1,10 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:repository_riverpod_mvvm/domain_layer/domain_providers.dart';
+import 'package:repository_riverpod_mvvm/domain/domain_providers.dart';
 import 'package:repository_riverpod_mvvm/firebase_options.dart';
-import 'package:repository_riverpod_mvvm/infrastructure_layer/infrastructure_providers.dart';
-import 'package:repository_riverpod_mvvm/presentation_layer/views/time_line_page.dart';
+import 'package:repository_riverpod_mvvm/infrastructure/infrastructure_providers.dart';
+import 'package:repository_riverpod_mvvm/presentation/views/time_line_page.dart';
 
 void main() async {
   await Firebase.initializeApp(

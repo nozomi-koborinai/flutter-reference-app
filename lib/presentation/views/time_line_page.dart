@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:repository_riverpod_mvvm/presentation_layer/common_widgets/common_app_bar.dart';
-import 'package:repository_riverpod_mvvm/presentation_layer/view_models/time_line_page_view_model.dart';
-
-import '../../domain_layer/models/post.dart';
+import 'package:repository_riverpod_mvvm/domain/models/post.dart';
+import 'package:repository_riverpod_mvvm/presentation/common_widgets/common_app_bar.dart';
+import 'package:repository_riverpod_mvvm/presentation/view_models/time_line_page_view_model.dart';
 
 class TimeLinePage extends ConsumerWidget {
   const TimeLinePage({Key? key}) : super(key: key);

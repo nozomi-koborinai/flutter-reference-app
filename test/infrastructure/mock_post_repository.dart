@@ -1,5 +1,5 @@
-import 'package:repository_riverpod_mvvm/domain_layer/interfaces/i_post_repository.dart';
-import 'package:repository_riverpod_mvvm/domain_layer/models/post.dart';
+import 'package:repository_riverpod_mvvm/domain/interfaces/i_post_repository.dart';
+import 'package:repository_riverpod_mvvm/domain/models/post.dart';
 
 /// テスト用のRepositoryクラス
 class MockPostRepository implements IPostRepository {
@@ -16,7 +16,7 @@ class MockPostRepository implements IPostRepository {
   Future<List<Post>> fetchPostFromUserId(String id) async {
     return posts.where((post) => post.id == id).toList();
   }
-  
+
   @override
   Future<void> deletePostFromId(String id) async {
     posts.removeWhere((post) => post.id == id);

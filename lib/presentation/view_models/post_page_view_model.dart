@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:repository_riverpod_mvvm/domain_layer/domain_providers.dart';
-import 'package:repository_riverpod_mvvm/domain_layer/models/post.dart';
-import 'package:repository_riverpod_mvvm/presentation_layer/presentation_providers.dart';
-import '../../domain_layer/interfaces/i_post_repository.dart';
+import 'package:repository_riverpod_mvvm/domain/domain_providers.dart';
+import 'package:repository_riverpod_mvvm/domain/interfaces/i_post_repository.dart';
+import 'package:repository_riverpod_mvvm/domain/models/post.dart';
+import 'package:repository_riverpod_mvvm/presentation/presentation_providers.dart';
 
 /// PostPageViewModelのインスタンスを返却するプロバイダ
 final postPageViewModelProvider = Provider<PostPageViewModel>((ref) {

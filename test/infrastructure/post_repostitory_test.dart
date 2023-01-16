@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:repository_riverpod_mvvm/domain_layer/domain_providers.dart';
-import 'package:repository_riverpod_mvvm/domain_layer/models/post.dart';
+import 'package:repository_riverpod_mvvm/domain/domain_providers.dart';
+import 'package:repository_riverpod_mvvm/domain/models/post.dart';
 import 'mock_post_repository.dart';
 
 void main() {

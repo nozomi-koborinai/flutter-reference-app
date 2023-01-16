@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:repository_riverpod_mvvm/domain_layer/models/post.dart';
+import 'package:repository_riverpod_mvvm/domain/models/post.dart';
 
 // StateNotifierProvider に渡すことになる StateNotifier クラス
 // このクラスではステートを `state` プロパティの外に公開しない

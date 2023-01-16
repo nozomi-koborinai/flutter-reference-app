@@ -1,5 +1,6 @@
-import 'package:repository_riverpod_mvvm/domain_layer/models/post.dart';
-import 'package:repository_riverpod_mvvm/infrastructure_layer/dtos/post_document.dart';
+
+import 'package:repository_riverpod_mvvm/domain/models/post.dart';
+import 'package:repository_riverpod_mvvm/infrastructure/dtos/post_document.dart';
 
 /// ドメイン層のモデルからインフラ層のモデルへの変換
 /// インフラ層のモデルからドメイン層のモデルへの変換
