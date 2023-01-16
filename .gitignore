@@ -101,6 +101,7 @@ unlinked_spec.ds
 **/ios/Runner/GeneratedPluginRegistrant.*
 
 # macOS
+macos
 **/Flutter/ephemeral/
 **/Pods/
 **/macos/Flutter/GeneratedPluginRegistrant.swift
@@ -123,3 +124,4 @@ app.*.symbols
 
 # Firebase
 .firebaserc
+firebase.json
