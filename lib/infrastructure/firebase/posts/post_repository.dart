@@ -1,15 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:repository_riverpod_mvvm/domain/interfaces/i_post_repository.dart';
 import 'package:repository_riverpod_mvvm/domain/models/post.dart';
 import 'package:repository_riverpod_mvvm/utils/convert_utils.dart';
-
-import '../infrastructure_providers.dart';
-
-/// 投稿コレクション参照プロバイダー
-final postsCollectionRefProvider = Provider(
-  (ref) => ref.watch(firebaseFirestoreProvider).collection('posts'),
-);
 
 class FirebasePostRepository implements IPostRepository {
   FirebasePostRepository({

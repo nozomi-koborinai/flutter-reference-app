@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:repository_riverpod_mvvm/domain/domain_providers.dart';
 import 'package:repository_riverpod_mvvm/firebase_options.dart';
-import 'package:repository_riverpod_mvvm/infrastructure/repositories/post_repository.dart';
+import 'package:repository_riverpod_mvvm/infrastructure/firebase/firebase_providers.dart';
+import 'package:repository_riverpod_mvvm/infrastructure/firebase/posts/post_repository.dart';
 import 'package:repository_riverpod_mvvm/presentation/views/time_line_page.dart';
 
 void main() async {

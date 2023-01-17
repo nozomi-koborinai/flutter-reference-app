@@ -1,6 +1,5 @@
-
 import 'package:repository_riverpod_mvvm/domain/models/post.dart';
-import 'package:repository_riverpod_mvvm/infrastructure/dtos/post_document.dart';
+import 'package:repository_riverpod_mvvm/infrastructure/firebase/posts/dtos/post_document.dart';
 
 /// ドメイン層のモデルからインフラ層のモデルへの変換
 /// インフラ層のモデルからドメイン層のモデルへの変換
@@ -16,11 +15,11 @@ class ConvertUtils {
 
   /// PostDocument -> Post
   Post toPost({required PostDocument postDoc, String? id}) {
-    final post = Post(content: postDoc.content, 
-                      accountId: postDoc.accountId,
-                      // ignore: unnecessary_null_in_if_null_operators
-                      id: id ?? null
-                );
+    final post = Post(
+        content: postDoc.content,
+        accountId: postDoc.accountId,
+        // ignore: unnecessary_null_in_if_null_operators
+        id: id ?? null);
     return post;
   }
 }
