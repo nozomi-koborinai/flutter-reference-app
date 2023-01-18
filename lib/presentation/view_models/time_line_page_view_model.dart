@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:repository_riverpod_mvvm/domain/domain_providers.dart';
-import 'package:repository_riverpod_mvvm/domain/interfaces/i_post_repository.dart';
-import 'package:repository_riverpod_mvvm/infrastructure/firebase/firebase_providers.dart';
-import 'package:repository_riverpod_mvvm/presentation/presentation_providers.dart';
-import 'package:repository_riverpod_mvvm/presentation/views/post_page.dart';
+
+import '../../domain/domain_providers.dart';
+import '../../domain/interfaces/i_post_repository.dart';
+import '../../infrastructure/firebase/firebase_providers.dart';
+import '../presentation_providers.dart';
+import '../views/post_page.dart';
 
 /// TimeLinePageViewModelのインスタンスを返却
 final timeLinePageViewModelProvider = Provider<TimeLinePageViewModel>((ref) {

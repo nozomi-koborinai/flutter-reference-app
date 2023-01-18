@@ -1,11 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:repository_riverpod_mvvm/domain/domain_providers.dart';
-import 'package:repository_riverpod_mvvm/firebase_options.dart';
-import 'package:repository_riverpod_mvvm/infrastructure/firebase/firebase_providers.dart';
-import 'package:repository_riverpod_mvvm/infrastructure/firebase/posts/post_repository.dart';
-import 'package:repository_riverpod_mvvm/presentation/views/time_line_page.dart';
+
+import 'domain/domain_providers.dart';
+import 'firebase_options.dart';
+import 'infrastructure/firebase/firebase_providers.dart';
+import 'infrastructure/firebase/posts/post_repository.dart';
+import 'presentation/views/time_line_page.dart';
 
 void main() async {
   await Firebase.initializeApp(

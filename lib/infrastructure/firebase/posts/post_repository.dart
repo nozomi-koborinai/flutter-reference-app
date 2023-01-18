@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:repository_riverpod_mvvm/domain/interfaces/i_post_repository.dart';
-import 'package:repository_riverpod_mvvm/domain/models/post.dart';
-import 'package:repository_riverpod_mvvm/utils/convert_utils.dart';
+
+import '../../../domain/interfaces/i_post_repository.dart';
+import '../../../domain/models/post.dart';
+import '../../../utils/convert_utils.dart';
 
 class FirebasePostRepository implements IPostRepository {
   FirebasePostRepository({

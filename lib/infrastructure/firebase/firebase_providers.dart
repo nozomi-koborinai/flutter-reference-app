@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:repository_riverpod_mvvm/domain/models/post.dart';
-import 'package:repository_riverpod_mvvm/infrastructure/firebase/posts/dtos/post_document.dart';
-import 'package:repository_riverpod_mvvm/utils/convert_utils.dart';
+
+import '../../domain/models/post.dart';
+import '../../utils/convert_utils.dart';
+import 'posts/dtos/post_document.dart';
 
 /// Firestoreのインスタンスを保持するプロバイダ
 final firebaseFirestoreProvider = Provider((_) => FirebaseFirestore.instance);
