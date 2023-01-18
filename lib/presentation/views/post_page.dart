@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:repository_riverpod_mvvm/presentation/common_widgets/common_app_bar.dart';
-import 'package:repository_riverpod_mvvm/presentation/view_models/post_page_view_model.dart';
+
+import '../common_widgets/common_app_bar.dart';
+import '../view_models/post_page_view_model.dart';
 
 class PostPage extends ConsumerWidget {
   const PostPage({Key? key}) : super(key: key);

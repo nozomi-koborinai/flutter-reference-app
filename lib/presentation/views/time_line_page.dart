@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:repository_riverpod_mvvm/domain/models/post.dart';
-import 'package:repository_riverpod_mvvm/presentation/common_widgets/common_app_bar.dart';
-import 'package:repository_riverpod_mvvm/presentation/view_models/time_line_page_view_model.dart';
+
+import '../../domain/models/post.dart';
+import '../common_widgets/common_app_bar.dart';
+import '../view_models/time_line_page_view_model.dart';
 
 class TimeLinePage extends ConsumerWidget {
   const TimeLinePage({Key? key}) : super(key: key);
@@ -32,9 +33,10 @@ class TimeLinePage extends ConsumerWidget {
                           child: Icon(Icons.face_retouching_natural_sharp)),
                       title: Text(data[index].content),
                       subtitle: Text(data[index].accountId),
-                      trailing: IconButton(icon: const Icon(Icons.delete), 
-                                           onPressed: () => vm.onDelete(data[index].id!),
-                                ),
+                      trailing: IconButton(
+                        icon: const Icon(Icons.delete),
+                        onPressed: () => vm.onDelete(data[index].id!),
+                      ),
                     ),
                   );
                 },
