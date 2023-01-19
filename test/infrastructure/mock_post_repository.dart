@@ -1,5 +1,5 @@
-import 'package:repository_riverpod_mvvm/domain/interfaces/i_post_repository.dart';
-import 'package:repository_riverpod_mvvm/domain/models/post.dart';
+import 'package:riverpod_layered_architecture/domain/interfaces/i_post_repository.dart';
+import 'package:riverpod_layered_architecture/domain/models/post.dart';
 
 /// テスト用のRepositoryクラス
 class MockPostRepository implements IPostRepository {
