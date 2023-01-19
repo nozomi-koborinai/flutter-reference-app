@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'post_document.dart';
 
@@ -20,9 +20,7 @@ PostDocument _$PostDocumentFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostDocument {
-  @JsonKey(name: 'content')
   String get content => throw _privateConstructorUsedError;
-  @JsonKey(name: 'account_id')
   String get accountId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,35 +33,37 @@ mixin _$PostDocument {
 abstract class $PostDocumentCopyWith<$Res> {
   factory $PostDocumentCopyWith(
           PostDocument value, $Res Function(PostDocument) then) =
-      _$PostDocumentCopyWithImpl<$Res>;
-  $Res call(
-      {@JsonKey(name: 'content') String content,
-      @JsonKey(name: 'account_id') String accountId});
+      _$PostDocumentCopyWithImpl<$Res, PostDocument>;
+  @useResult
+  $Res call({String content, String accountId});
 }
 
 /// @nodoc
-class _$PostDocumentCopyWithImpl<$Res> implements $PostDocumentCopyWith<$Res> {
+class _$PostDocumentCopyWithImpl<$Res, $Val extends PostDocument>
+    implements $PostDocumentCopyWith<$Res> {
   _$PostDocumentCopyWithImpl(this._value, this._then);
 
-  final PostDocument _value;
   // ignore: unused_field
-  final $Res Function(PostDocument) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? content = freezed,
-    Object? accountId = freezed,
+    Object? content = null,
+    Object? accountId = null,
   }) {
     return _then(_value.copyWith(
-      content: content == freezed
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      accountId: accountId == freezed
+      accountId: null == accountId
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -74,33 +74,30 @@ abstract class _$$_PostDocumentCopyWith<$Res>
           _$_PostDocument value, $Res Function(_$_PostDocument) then) =
       __$$_PostDocumentCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {@JsonKey(name: 'content') String content,
-      @JsonKey(name: 'account_id') String accountId});
+  @useResult
+  $Res call({String content, String accountId});
 }
 
 /// @nodoc
 class __$$_PostDocumentCopyWithImpl<$Res>
-    extends _$PostDocumentCopyWithImpl<$Res>
+    extends _$PostDocumentCopyWithImpl<$Res, _$_PostDocument>
     implements _$$_PostDocumentCopyWith<$Res> {
   __$$_PostDocumentCopyWithImpl(
       _$_PostDocument _value, $Res Function(_$_PostDocument) _then)
-      : super(_value, (v) => _then(v as _$_PostDocument));
+      : super(_value, _then);
 
-  @override
-  _$_PostDocument get _value => super._value as _$_PostDocument;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? content = freezed,
-    Object? accountId = freezed,
+    Object? content = null,
+    Object? accountId = null,
   }) {
     return _then(_$_PostDocument(
-      content: content == freezed
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      accountId: accountId == freezed
+      accountId: null == accountId
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as String,
@@ -111,18 +108,14 @@ class __$$_PostDocumentCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PostDocument with DiagnosticableTreeMixin implements _PostDocument {
-  const _$_PostDocument(
-      {@JsonKey(name: 'content') required this.content,
-      @JsonKey(name: 'account_id') required this.accountId});
+  const _$_PostDocument({required this.content, required this.accountId});
 
   factory _$_PostDocument.fromJson(Map<String, dynamic> json) =>
       _$$_PostDocumentFromJson(json);
 
   @override
-  @JsonKey(name: 'content')
   final String content;
   @override
-  @JsonKey(name: 'account_id')
   final String accountId;
 
   @override
@@ -144,43 +137,41 @@ class _$_PostDocument with DiagnosticableTreeMixin implements _PostDocument {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PostDocument &&
-            const DeepCollectionEquality().equals(other.content, content) &&
-            const DeepCollectionEquality().equals(other.accountId, accountId));
+            (identical(other.content, content) || other.content == content) &&
+            (identical(other.accountId, accountId) ||
+                other.accountId == accountId));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(content),
-      const DeepCollectionEquality().hash(accountId));
+  int get hashCode => Object.hash(runtimeType, content, accountId);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PostDocumentCopyWith<_$_PostDocument> get copyWith =>
       __$$_PostDocumentCopyWithImpl<_$_PostDocument>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PostDocumentToJson(this);
+    return _$$_PostDocumentToJson(
+      this,
+    );
   }
 }
 
 abstract class _PostDocument implements PostDocument {
   const factory _PostDocument(
-          {@JsonKey(name: 'content') required final String content,
-          @JsonKey(name: 'account_id') required final String accountId}) =
-      _$_PostDocument;
+      {required final String content,
+      required final String accountId}) = _$_PostDocument;
 
   factory _PostDocument.fromJson(Map<String, dynamic> json) =
       _$_PostDocument.fromJson;
 
   @override
-  @JsonKey(name: 'content')
-  String get content => throw _privateConstructorUsedError;
+  String get content;
   @override
-  @JsonKey(name: 'account_id')
-  String get accountId => throw _privateConstructorUsedError;
+  String get accountId;
   @override
   @JsonKey(ignore: true)
   _$$_PostDocumentCopyWith<_$_PostDocument> get copyWith =>
