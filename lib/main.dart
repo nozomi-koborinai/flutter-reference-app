@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'domain/domain_providers.dart';
 import 'firebase_options.dart';
-import 'infrastructure/firebase/firebase_providers.dart';
 import 'infrastructure/firebase/posts/post_repository.dart';
 import 'presentation/views/time_line_page.dart';
 
