@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_layered_architecture/presentation/theme.dart';
 
-import 'views/time_line_page.dart';
+import 'pages/time_line_page.dart';
 
 class App extends ConsumerWidget {
   const App({Key? key}) : super(key: key);

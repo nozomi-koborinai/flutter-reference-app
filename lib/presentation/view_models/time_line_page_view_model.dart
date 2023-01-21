@@ -4,8 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../domain/domain_providers.dart';
 import '../../domain/interfaces/i_post_repository.dart';
 import '../../infrastructure/firebase/firebase_providers.dart';
+import '../pages/post_page.dart';
 import '../presentation_providers.dart';
-import '../views/post_page.dart';
 
 /// TimeLinePageViewModelのインスタンスを返却
 final timeLinePageViewModelProvider = Provider<TimeLinePageViewModel>((ref) {
