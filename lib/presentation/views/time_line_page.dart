@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../domain/models/post.dart';
-import '../common_widgets/common_app_bar.dart';
 import '../view_models/time_line_page_view_model.dart';
 
 class TimeLinePage extends ConsumerWidget {
@@ -14,7 +13,7 @@ class TimeLinePage extends ConsumerWidget {
     final AsyncValue<List<Post>> asyncValue = vm.posts;
 
     return Scaffold(
-      appBar: CommonAppBar(vm.pageTitle),
+      appBar: AppBar(title: const Text('投稿')),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.chat_bubble_outline_outlined),
         onPressed: () => vm.onPost(context),

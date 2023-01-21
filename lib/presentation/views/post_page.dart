@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../common_widgets/common_app_bar.dart';
 import '../view_models/post_page_view_model.dart';
 
 class PostPage extends ConsumerWidget {
@@ -11,7 +10,7 @@ class PostPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final vm = ref.watch(postPageViewModelProvider);
     return Scaffold(
-      appBar: CommonAppBar(vm.pageTitle),
+      appBar: AppBar(title: const Text('タイムライン')),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(

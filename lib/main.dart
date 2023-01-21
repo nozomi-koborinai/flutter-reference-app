@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'domain/domain_providers.dart';
 import 'firebase_options.dart';
 import 'infrastructure/firebase/posts/post_repository.dart';
-import 'presentation/views/time_line_page.dart';
+import 'presentation/app.dart';
 
 void main() async {
   await Firebase.initializeApp(
@@ -22,24 +22,7 @@ void main() async {
           return repository;
         })
       ],
-      child: const MyApp(),
+      child: const App(),
     ),
   );
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'riverpod-layered-architecture',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-
-      //タイムラインページを表示
-      home: const TimeLinePage(),
-    );
-  }
 }
