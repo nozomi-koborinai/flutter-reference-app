@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_layered_architecture/application/post_service.dart';
+import 'package:riverpod_layered_architecture/presentation/components/widget_ref.dart';
 
+import '../../application/state/result.dart';
 import '../../application/state/selected_post.dart';
 
 class PostPage extends ConsumerWidget {
@@ -9,11 +11,29 @@ class PostPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // 新規投稿結果を監視する
+    ref.listenResult<void>(
+      addPostResultProvider,
+      completeMessage: '新規投稿しました',
+      complete: (_) {
+        Navigator.pop(context);
+      },
+    );
+
+    // 投稿変更結果を監視する
+    ref.listenResult<void>(
+      updatePostResultProvider,
+      completeMessage: '投稿内容を更新しました',
+      complete: (_) {
+        Navigator.pop(context);
+      },
+    );
+
     final selectedPost = ref.read(selectedPostProvider);
 
-    TextEditingController contentController =
+    final contentController =
         TextEditingController(text: selectedPost?.content);
-    TextEditingController contributorController =
+    final contributorController =
         TextEditingController(text: selectedPost?.contributor);
 
     return Scaffold(
@@ -64,7 +84,6 @@ class PostPage extends ConsumerWidget {
                           contributor: contributorController.text,
                         );
                   }
-                  Navigator.pop(context);
                 },
                 child: Text(selectedPost == null ? '投稿' : '保存'),
               ),

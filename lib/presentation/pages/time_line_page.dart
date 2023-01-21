@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:riverpod_layered_architecture/application/post_service.dart';
+import 'package:riverpod_layered_architecture/application/state/result.dart';
 import 'package:riverpod_layered_architecture/application/state/selected_post.dart';
 import 'package:riverpod_layered_architecture/domain/repositories/post_repository.dart';
 import 'package:riverpod_layered_architecture/presentation/components/async_value_handler.dart';
+import 'package:riverpod_layered_architecture/presentation/components/widget_ref.dart';
 import 'package:riverpod_layered_architecture/presentation/pages/post_page.dart';
 
 import '../../domain/models/post.dart';
@@ -14,6 +16,12 @@ class TimeLinePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // 投稿削除結果を監視する
+    ref.listenResult<void>(
+      deletePostResultProvider,
+      completeMessage: '投稿を削除しました',
+    );
+
     return Scaffold(
       appBar: AppBar(title: const Text('投稿')),
       floatingActionButton: FloatingActionButton(
