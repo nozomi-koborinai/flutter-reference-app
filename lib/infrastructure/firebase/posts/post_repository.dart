@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../domain/interfaces/i_post_repository.dart';
 import '../../../domain/models/post.dart';
+import '../../../domain/repository_interfaces/i_post_repository.dart';
 import '../firebase_providers.dart';
 import 'documents/post_document.dart';
 
