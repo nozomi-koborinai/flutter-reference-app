@@ -21,7 +21,7 @@ PostDocument _$PostDocumentFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PostDocument {
   String get content => throw _privateConstructorUsedError;
-  String get accountId => throw _privateConstructorUsedError;
+  String get contributor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $PostDocumentCopyWith<$Res> {
           PostDocument value, $Res Function(PostDocument) then) =
       _$PostDocumentCopyWithImpl<$Res, PostDocument>;
   @useResult
-  $Res call({String content, String accountId});
+  $Res call({String content, String contributor});
 }
 
 /// @nodoc
@@ -52,16 +52,16 @@ class _$PostDocumentCopyWithImpl<$Res, $Val extends PostDocument>
   @override
   $Res call({
     Object? content = null,
-    Object? accountId = null,
+    Object? contributor = null,
   }) {
     return _then(_value.copyWith(
       content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      accountId: null == accountId
-          ? _value.accountId
-          : accountId // ignore: cast_nullable_to_non_nullable
+      contributor: null == contributor
+          ? _value.contributor
+          : contributor // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -75,7 +75,7 @@ abstract class _$$_PostDocumentCopyWith<$Res>
       __$$_PostDocumentCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String content, String accountId});
+  $Res call({String content, String contributor});
 }
 
 /// @nodoc
@@ -90,16 +90,16 @@ class __$$_PostDocumentCopyWithImpl<$Res>
   @override
   $Res call({
     Object? content = null,
-    Object? accountId = null,
+    Object? contributor = null,
   }) {
     return _then(_$_PostDocument(
       content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      accountId: null == accountId
-          ? _value.accountId
-          : accountId // ignore: cast_nullable_to_non_nullable
+      contributor: null == contributor
+          ? _value.contributor
+          : contributor // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -108,7 +108,7 @@ class __$$_PostDocumentCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PostDocument extends _PostDocument with DiagnosticableTreeMixin {
-  const _$_PostDocument({required this.content, required this.accountId})
+  const _$_PostDocument({required this.content, required this.contributor})
       : super._();
 
   factory _$_PostDocument.fromJson(Map<String, dynamic> json) =>
@@ -117,11 +117,11 @@ class _$_PostDocument extends _PostDocument with DiagnosticableTreeMixin {
   @override
   final String content;
   @override
-  final String accountId;
+  final String contributor;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PostDocument(content: $content, accountId: $accountId)';
+    return 'PostDocument(content: $content, contributor: $contributor)';
   }
 
   @override
@@ -130,7 +130,7 @@ class _$_PostDocument extends _PostDocument with DiagnosticableTreeMixin {
     properties
       ..add(DiagnosticsProperty('type', 'PostDocument'))
       ..add(DiagnosticsProperty('content', content))
-      ..add(DiagnosticsProperty('accountId', accountId));
+      ..add(DiagnosticsProperty('contributor', contributor));
   }
 
   @override
@@ -139,13 +139,13 @@ class _$_PostDocument extends _PostDocument with DiagnosticableTreeMixin {
         (other.runtimeType == runtimeType &&
             other is _$_PostDocument &&
             (identical(other.content, content) || other.content == content) &&
-            (identical(other.accountId, accountId) ||
-                other.accountId == accountId));
+            (identical(other.contributor, contributor) ||
+                other.contributor == contributor));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, content, accountId);
+  int get hashCode => Object.hash(runtimeType, content, contributor);
 
   @JsonKey(ignore: true)
   @override
@@ -164,7 +164,7 @@ class _$_PostDocument extends _PostDocument with DiagnosticableTreeMixin {
 abstract class _PostDocument extends PostDocument {
   const factory _PostDocument(
       {required final String content,
-      required final String accountId}) = _$_PostDocument;
+      required final String contributor}) = _$_PostDocument;
   const _PostDocument._() : super._();
 
   factory _PostDocument.fromJson(Map<String, dynamic> json) =
@@ -173,7 +173,7 @@ abstract class _PostDocument extends PostDocument {
   @override
   String get content;
   @override
-  String get accountId;
+  String get contributor;
   @override
   @JsonKey(ignore: true)
   _$$_PostDocumentCopyWith<_$_PostDocument> get copyWith =>

@@ -10,7 +10,7 @@ part 'post_document.g.dart';
 class PostDocument with _$PostDocument {
   const factory PostDocument({
     required String content,
-    required String accountId,
+    required String contributor,
   }) = _PostDocument;
 
   const PostDocument._();
@@ -22,7 +22,7 @@ class PostDocument with _$PostDocument {
   Post toPost({required String id}) {
     return Post(
       content: content,
-      accountId: accountId,
+      contributor: contributor,
       id: id,
     );
   }
