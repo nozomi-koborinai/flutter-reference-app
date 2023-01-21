@@ -2,16 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_layered_architecture/application/post_service.dart';
 
+import '../../application/state/selected_post.dart';
+
 class PostPage extends ConsumerWidget {
   const PostPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    TextEditingController contentController = TextEditingController();
-    TextEditingController contributorController = TextEditingController();
+    final selectedPost = ref.read(selectedPostProvider);
+
+    TextEditingController contentController =
+        TextEditingController(text: selectedPost?.content);
+    TextEditingController contributorController =
+        TextEditingController(text: selectedPost?.contributor);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('タイムライン')),
+      appBar: AppBar(
+        title: Text(selectedPost == null ? '投稿' : '編集'),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -44,13 +52,21 @@ class PostPage extends ConsumerWidget {
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
                 onPressed: () async {
-                  await ref.read(postServiceProvider).addPost(
-                        content: contentController.text,
-                        contributor: contributorController.text,
-                      );
+                  if (selectedPost == null) {
+                    await ref.read(postServiceProvider).addPost(
+                          content: contentController.text,
+                          contributor: contributorController.text,
+                        );
+                  } else {
+                    await ref.read(postServiceProvider).updatePost(
+                          id: selectedPost.id!,
+                          content: contentController.text,
+                          contributor: contributorController.text,
+                        );
+                  }
                   Navigator.pop(context);
                 },
-                child: const Text('投稿'),
+                child: Text(selectedPost == null ? '投稿' : '保存'),
               ),
             )
           ],

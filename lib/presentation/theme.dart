@@ -6,6 +6,7 @@ import 'package:hexcolor/hexcolor.dart';
 final themeProvider = Provider(
   (ref) {
     return ThemeData(
+      scaffoldBackgroundColor: Colors.transparent,
       useMaterial3: true,
       bottomSheetTheme: const BottomSheetThemeData(
         shape: RoundedRectangleBorder(
