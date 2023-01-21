@@ -1,4 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_layered_architecture/domain/repositories/post_repository.dart';
+
+import '../domain/models/post.dart';
 
 /// 投稿サービスプロバイダー
 final postServiceProvider = Provider(
@@ -12,4 +15,31 @@ final postServiceProvider = Provider(
 class PostService {
   const PostService(this.ref);
   final Ref ref;
+
+  /// 新規投稿ボタン押下時処理
+  addPost({required String content, required String contributor}) async {
+    await ref
+        .read(postRepositoryProvider)
+        .addPost(post: Post(content: content, contributor: contributor));
+  }
+
+  /// 投稿編集ボタン押下時
+  updatePost({
+    required String id,
+    required String content,
+    required String contributor,
+  }) async {
+    await ref.read(postRepositoryProvider).updatePost(
+          post: Post(
+            id: id,
+            content: content,
+            contributor: contributor,
+          ),
+        );
+  }
+
+  /// 削除ボタン押下時処理
+  deletePost({required String id}) async {
+    await ref.read(postRepositoryProvider).deletePostFromId(docId: id);
+  }
 }
