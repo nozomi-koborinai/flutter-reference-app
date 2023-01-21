@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../domain/models/post.dart';
-import '../../domain/repository_interfaces/i_post_repository.dart';
+import '../../domain/repositories/post_repository.dart';
 import '../presentation_providers.dart';
 
 /// PostPageViewModelのインスタンスを返却するプロバイダ

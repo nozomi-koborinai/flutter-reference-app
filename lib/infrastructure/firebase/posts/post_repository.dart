@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../../domain/models/post.dart';
-import '../../../domain/repository_interfaces/i_post_repository.dart';
+import '../../../domain/repositories/post_repository.dart';
 import 'documents/post_document.dart';
 
 /// Firebase 投稿リポジトリ

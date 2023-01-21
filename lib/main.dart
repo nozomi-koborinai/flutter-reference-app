@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'domain/repository_interfaces/i_post_repository.dart';
+import 'domain/repositories/post_repository.dart';
 import 'firebase_options.dart';
 import 'infrastructure/firebase/firebase_providers.dart';
 import 'infrastructure/firebase/posts/post_repository.dart';
