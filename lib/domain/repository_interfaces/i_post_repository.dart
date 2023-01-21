@@ -8,13 +8,25 @@ final postRepositoryProvider = Provider<IPostRepository>(
   (_) => throw UnimplementedError('Provider was not initialized'),
 );
 
+/// PostRepositoryから投稿一覧を取得するプロバイダー
+final postsProvider = FutureProvider(
+  (ref) async {
+    final repository = ref.watch(postRepositoryProvider);
+    repository.postsChanges().listen((latest) {
+      ref.state = AsyncValue.data(latest);
+    });
+    return repository.fetchPosts();
+  },
+);
+
 /// 投稿リポジトリインタフェース
 abstract class IPostRepository {
   /// Create
   Future<void> addPost({required Post post});
 
   /// Read
-  Stream<List<Post>> fetchPosts();
+  Stream<List<Post>> postsChanges();
+  Future<List<Post>> fetchPosts();
 
   /// Update
   Future<void> updatePost({required Post post});

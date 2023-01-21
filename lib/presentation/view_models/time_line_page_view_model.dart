@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../domain/repository_interfaces/i_post_repository.dart';
-import '../../infrastructure/firebase/firebase_providers.dart';
 import '../pages/post_page.dart';
 import '../presentation_providers.dart';
 
@@ -21,7 +20,7 @@ class TimeLinePageViewModel {
 
   //各Providerのgetter（viewとのバインド用）
   get pageTitle => ref.read(timeLineTitleProvider).toString();
-  get posts => ref.watch(postListStreamProvider);
+  get posts => ref.watch(postsProvider);
 
   /// 投稿ボタン押下時
   Future<void> onPost(BuildContext context) async {
