@@ -67,7 +67,14 @@ class FirebasePostRepository implements IPostRepository {
 
   /// Update：postコレクション.documentIdに紐づく投稿を更新
   @override
-  Future<void> updatePost({required Post post}) async {}
+  Future<void> updatePost({required Post post}) async {
+    await collectionRef.doc(post.id).update(
+          PostDocument(
+            content: post.content,
+            contributor: post.contributor,
+          ).toJson(),
+        );
+  }
 
   /// Delete：postコレクション.documentIdをに紐づく投稿を削除
   @override
