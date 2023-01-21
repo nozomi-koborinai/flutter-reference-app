@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_layered_architecture/infrastructure/firebase/posts/dtos/post_document.dart';
 
 import '../../../domain/interfaces/i_post_repository.dart';
 import '../../../domain/models/post.dart';
 import '../firebase_providers.dart';
+import 'documents/post_document.dart';
 
 /// 投稿コレクション参照プロバイダー
 final postsCollectionRefProvider = Provider(
