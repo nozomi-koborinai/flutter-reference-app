@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -25,25 +27,37 @@ class FirebasePostRepository implements IPostRepository {
 
   final CollectionReference<PostDocument> collectionRef;
 
-  /// 投稿新規追加
+  final _postsStreamController = StreamController<List<Post>>.broadcast();
+
+  /// Create：投稿新規追加
   @override
-  Future<void> addPost(Post newPost) async {
+  Future<void> addPost({required Post post}) async {
     await collectionRef.add(
       PostDocument(
-        content: newPost.content,
-        accountId: newPost.accountId,
+        content: post.content,
+        contributor: post.contributor,
       ),
     );
   }
 
-  /// 投稿IDを元に投稿ドキュメント削除
+  /// Read：postコレクション.documentIdに紐づく投稿を取得
   @override
-  Future<void> deletePostFromId(String id) async =>
-      collectionRef.doc(id).delete();
+  Stream<List<Post>> fetchPosts() {
+    return _postsStreamController.stream;
+  }
 
-  /// ユーザIdに紐づく投稿情報を取得
+  /// Update：postコレクション.documentIdに紐づく投稿を更新
   @override
-  Future<List<Post>> fetchPostFromUserId(String id) async {
-    throw UnimplementedError();
+  Future<void> updatePost({required Post post}) async {}
+
+  /// Delete：postコレクション.documentIdをに紐づく投稿を削除
+  @override
+  Future<void> deletePostFromId({required String docId}) async {
+    collectionRef.doc(docId).delete();
+  }
+
+  @override
+  void dispose() {
+    _postsStreamController.close();
   }
 }

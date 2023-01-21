@@ -19,6 +19,7 @@ void main() async {
           final repository = FirebasePostRepository(
             collectionRef: ref.watch(postsCollectionRefProvider),
           );
+          ref.onDispose(repository.dispose);
           return repository;
         })
       ],

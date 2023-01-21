@@ -10,7 +10,18 @@ final postRepositoryProvider = Provider<IPostRepository>(
 
 /// 投稿リポジトリインタフェース
 abstract class IPostRepository {
-  Future<void> addPost(Post newPost);
-  Future<List<Post>> fetchPostFromUserId(String id);
-  Future<void> deletePostFromId(String id);
+  /// Create
+  Future<void> addPost({required Post post});
+
+  /// Read
+  Stream<List<Post>> fetchPosts();
+
+  /// Update
+  Future<void> updatePost({required Post post});
+
+  /// Delete
+  Future<void> deletePostFromId({required String docId});
+
+  /// 破棄処理の実装をルール付けておく
+  void dispose();
 }

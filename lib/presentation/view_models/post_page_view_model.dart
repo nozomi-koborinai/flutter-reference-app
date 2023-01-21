@@ -30,12 +30,16 @@ class PostPageViewModel {
 
   /// 投稿ボタン押下時
   Future<void> onPost(BuildContext context) async {
-    await addPost(Post(
-        content: contentController.text, accountId: accountIdController.text));
+    await addPost(
+      Post(
+        content: contentController.text,
+        contributor: accountIdController.text,
+      ),
+    );
     Navigator.pop(context);
   }
 
   /// 投稿コレクションにドキュメント追加
   Future<void> addPost(Post newPost) async =>
-      await postRepository.addPost(newPost);
+      await postRepository.addPost(post: newPost);
 }

@@ -35,6 +35,6 @@ class TimeLinePageViewModel {
 
   /// 削除ボタン押下時
   Future<void> onDelete(String id) async {
-    await postRepository.deletePostFromId(id);
+    await postRepository.deletePostFromId(docId: id);
   }
 }

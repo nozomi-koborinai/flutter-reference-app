@@ -31,7 +31,7 @@ class TimeLinePage extends ConsumerWidget {
                       leading: const CircleAvatar(
                           child: Icon(Icons.face_retouching_natural_sharp)),
                       title: Text(data[index].content),
-                      subtitle: Text(data[index].accountId),
+                      subtitle: Text(data[index].contributor),
                       trailing: IconButton(
                         icon: const Icon(Icons.delete),
                         onPressed: () => vm.onDelete(data[index].id!),
