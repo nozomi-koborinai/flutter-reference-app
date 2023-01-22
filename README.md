@@ -15,14 +15,12 @@
 
 ## 題材：超簡易掲示板
 本アーキテクチャを用いて、最小限のCRUD操作を実装したWebアプリです。
-| CRUD操作| 対象機能 |
-| ---- | ---- |
-| C（Create） | 新規投稿 |
-| U（Update） | 投稿編集 |
-| R（Read） | 全投稿参照 |
-| D（Delete） | 投稿削除 |
-
-<img width="240" alt="image" src="https://user-images.githubusercontent.com/39579511/213901027-de574578-e9af-4bff-9dc8-5224393e94eb.png"> <img width="240" alt="image" src="https://user-images.githubusercontent.com/39579511/213901048-31350ccd-07a2-4950-b0aa-3ee454c42cd8.png"> <img width="240" alt="image" src="https://user-images.githubusercontent.com/39579511/213900995-8aa10aa6-c71a-4105-9c57-0e257261bd41.png"> <img width="240" alt="image" src="https://user-images.githubusercontent.com/39579511/213901108-b6243531-06a1-4ef1-9485-22591d01c110.png">
+| CRUD操作| 対象機能 | イメージ |
+| ---- | ---- | ---- |
+| C（Create） | 新規投稿 | <img width="240" alt="image" src="https://user-images.githubusercontent.com/39579511/213901027-de574578-e9af-4bff-9dc8-5224393e94eb.png"> |
+| R（Read） | 全投稿参照 | <img width="240" alt="image" src="https://user-images.githubusercontent.com/39579511/213900995-8aa10aa6-c71a-4105-9c57-0e257261bd41.png"> |
+| U（Update） | 投稿編集 | <img width="240" alt="image" src="https://user-images.githubusercontent.com/39579511/213901048-31350ccd-07a2-4950-b0aa-3ee454c42cd8.png"> |
+| D（Delete） | 投稿削除 | <img width="240" alt="image" src="https://user-images.githubusercontent.com/39579511/213901108-b6243531-06a1-4ef1-9485-22591d01c110.png"> |
 
 ## 参考
 
