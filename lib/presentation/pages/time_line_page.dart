@@ -23,7 +23,7 @@ class TimeLinePage extends ConsumerWidget {
     );
 
     return Scaffold(
-      appBar: AppBar(title: const Text('投稿')),
+      appBar: AppBar(title: const Text('タイムライン')),
       floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.chat_bubble_outline_outlined),
           onPressed: () async {
