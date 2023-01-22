@@ -18,10 +18,10 @@ void main() {
       ),
     );
 
-    // 公開中スタンプラリー一覧読み込み（非同期処理）が完了するまで待つ
+    // 投稿リスト読み込み（非同期処理）が完了するまで待つ
     await tester.pump();
 
-    // 読み込み完了後はサムネイル画像が生成される
+    // 読み込み完了後は投稿リストの件数分ListTileが生成される
     expect(find.byType(ListTile), findsNWidgets(5));
   });
 }
