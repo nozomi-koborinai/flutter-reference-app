@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_layered_architecture/application/post_service.dart';
+import 'package:riverpod_layered_architecture/presentation/components/post_button.dart';
+import 'package:riverpod_layered_architecture/presentation/components/post_text_form_field.dart';
 import 'package:riverpod_layered_architecture/presentation/components/widget_ref.dart';
 
 import '../../application/state/result.dart';
-import '../../application/state/selected_post.dart';
+import '../../domain/models/post.dart';
+
+/// 選択中投稿プロバイダー
+final selectedPostProvider = StateProvider<Post?>(
+  (_) => null,
+);
 
 class PostPage extends ConsumerWidget {
   const PostPage({Key? key}) : super(key: key);
@@ -29,12 +35,8 @@ class PostPage extends ConsumerWidget {
       },
     );
 
+    // 選択中投稿情報を取得する
     final selectedPost = ref.read(selectedPostProvider);
-
-    final contentController =
-        TextEditingController(text: selectedPost?.content);
-    final contributorController =
-        TextEditingController(text: selectedPost?.contributor);
 
     return Scaffold(
       appBar: AppBar(
@@ -43,50 +45,18 @@ class PostPage extends ConsumerWidget {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
-          children: [
+          children: const [
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextFormField(
-                  controller: contentController,
-                  enabled: true,
-                  style: const TextStyle(color: Colors.black),
-                  obscureText: false,
-                  maxLines: 1,
-                  decoration: const InputDecoration(
-                    labelText: 'content',
-                  )),
+              padding: EdgeInsets.all(8.0),
+              child: PostContentTextFormField(),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextFormField(
-                  controller: contributorController,
-                  enabled: true,
-                  style: const TextStyle(color: Colors.black),
-                  obscureText: false,
-                  maxLines: 1,
-                  decoration: const InputDecoration(
-                    labelText: 'contributor',
-                  )),
+              padding: EdgeInsets.all(8.0),
+              child: PostContributorTextFormField(),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
-                onPressed: () async {
-                  if (selectedPost == null) {
-                    await ref.read(postServiceProvider).addPost(
-                          content: contentController.text,
-                          contributor: contributorController.text,
-                        );
-                  } else {
-                    await ref.read(postServiceProvider).updatePost(
-                          id: selectedPost.id!,
-                          content: contentController.text,
-                          contributor: contributorController.text,
-                        );
-                  }
-                },
-                child: Text(selectedPost == null ? '投稿' : '保存'),
-              ),
+              padding: EdgeInsets.all(8.0),
+              child: PostButton(),
             )
           ],
         ),

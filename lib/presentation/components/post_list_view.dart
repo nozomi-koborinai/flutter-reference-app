@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 import '../../application/post_service.dart';
-import '../../application/state/selected_post.dart';
 import '../../domain/models/post.dart';
 import '../../domain/repositories/post_repository.dart';
 import '../pages/post_page.dart';
