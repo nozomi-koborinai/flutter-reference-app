@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_layered_architecture/presentation/components/post_text_form_field.dart';
-import 'package:riverpod_layered_architecture/presentation/pages/post_page.dart';
+import 'package:riverpod_layered_architecture/presentation/pages/post/components/post_text_form_field.dart';
+import 'package:riverpod_layered_architecture/presentation/pages/post/post_page.dart';
 
-import '../../application/post_service.dart';
+import '../../../../application/post_service.dart';
 
 class PostButton extends ConsumerWidget {
   const PostButton({super.key});

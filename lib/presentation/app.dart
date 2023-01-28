@@ -5,7 +5,7 @@ import 'package:riverpod_layered_architecture/presentation/theme.dart';
 import 'components/dialog.dart';
 import 'components/loading.dart';
 import 'components/scaffold_messenger.dart';
-import 'pages/time_line_page.dart';
+import 'pages/time_line/time_line_page.dart';
 
 class App extends ConsumerWidget {
   const App({Key? key}) : super(key: key);

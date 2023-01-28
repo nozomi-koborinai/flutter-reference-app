@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_layered_architecture/presentation/components/post_button.dart';
-import 'package:riverpod_layered_architecture/presentation/components/post_text_form_field.dart';
 import 'package:riverpod_layered_architecture/presentation/components/widget_ref.dart';
+import 'package:riverpod_layered_architecture/presentation/pages/post/components/post_button.dart';
+import 'package:riverpod_layered_architecture/presentation/pages/post/components/post_text_form_field.dart';
 
-import '../../application/state/result.dart';
-import '../../domain/models/post.dart';
+import '../../../application/state/result.dart';
+import '../../../domain/models/post.dart';
 
 /// 選択中投稿プロバイダー
 final selectedPostProvider = StateProvider<Post?>(
