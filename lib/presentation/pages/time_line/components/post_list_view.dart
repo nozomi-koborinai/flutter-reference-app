@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 import '../../../../application/post_service.dart';
+import '../../../../application/state/selected_post.dart';
 import '../../../../domain/models/post.dart';
 import '../../../../domain/repositories/post_repository.dart';
 import '../../../components/async_value_handler.dart';
@@ -22,7 +23,7 @@ class PostListView extends ConsumerWidget {
           itemBuilder: (context, index) {
             return InkWell(
               onTap: () async {
-                ref.read(selectedPostProvider.notifier).state = posts[index];
+                ref.read(selectedPostProvider.notifier).set(posts[index]);
                 await Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const PostPage()),

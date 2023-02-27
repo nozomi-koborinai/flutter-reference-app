@@ -5,12 +5,7 @@ import 'package:riverpod_layered_architecture/presentation/pages/post/components
 import 'package:riverpod_layered_architecture/presentation/pages/post/components/post_text_form_field.dart';
 
 import '../../../application/state/result.dart';
-import '../../../domain/models/post.dart';
-
-/// 選択中投稿プロバイダー
-final selectedPostProvider = StateProvider<Post?>(
-  (_) => null,
-);
+import '../../../application/state/selected_post.dart';
 
 class PostPage extends ConsumerWidget {
   const PostPage({Key? key}) : super(key: key);

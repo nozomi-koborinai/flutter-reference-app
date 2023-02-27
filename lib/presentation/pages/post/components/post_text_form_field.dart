@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_layered_architecture/presentation/pages/post/post_page.dart';
+
+import '../../../../application/state/selected_post.dart';
 
 final contentControllerProvider =
     StateProvider.autoDispose<TextEditingController>(
-  (ref) => TextEditingController(text: ref.read(selectedPostProvider)?.content),
+  (ref) =>
+      TextEditingController(text: ref.watch(selectedPostProvider)?.content),
 );
 final contributorControllerProvider =
     StateProvider.autoDispose<TextEditingController>(
   (ref) =>
-      TextEditingController(text: ref.read(selectedPostProvider)?.contributor),
+      TextEditingController(text: ref.watch(selectedPostProvider)?.contributor),
 );
 
 class PostContentTextFormField extends ConsumerWidget {

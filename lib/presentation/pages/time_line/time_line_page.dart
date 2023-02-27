@@ -5,6 +5,8 @@ import 'package:riverpod_layered_architecture/presentation/components/widget_ref
 import 'package:riverpod_layered_architecture/presentation/pages/post/post_page.dart';
 import 'package:riverpod_layered_architecture/presentation/pages/time_line/components/post_list_view.dart';
 
+import '../../../application/state/selected_post.dart';
+
 /// タイムライン（投稿一覧）ページ
 class TimeLinePage extends ConsumerWidget {
   const TimeLinePage({Key? key}) : super(key: key);
@@ -22,7 +24,7 @@ class TimeLinePage extends ConsumerWidget {
         floatingActionButton: FloatingActionButton(
             child: const Icon(Icons.chat_bubble_outline_outlined),
             onPressed: () async {
-              ref.read(selectedPostProvider.notifier).state = null;
+              ref.read(selectedPostProvider.notifier).set(null);
               await Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const PostPage()),
