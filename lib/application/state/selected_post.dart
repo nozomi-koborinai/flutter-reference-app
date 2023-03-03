@@ -13,5 +13,5 @@ class SelectedPost extends Notifier<Post?> {
     return null;
   }
 
-  void set(Post? post) => state = post == null ? null : post.copyWith();
+  void set(Post? post) => state = post?.copyWith();
 }
