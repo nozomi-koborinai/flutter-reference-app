@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:riverpod_layered_architecture/presentation/router_config.dart';
 
 import '../../../../application/post_service.dart';
 import '../../../../application/state/selected_post.dart';
 import '../../../../domain/models/post.dart';
 import '../../../../domain/repositories/post_repository.dart';
 import '../../../components/async_value_handler.dart';
-import '../../post/post_page.dart';
 
 /// 投稿一覧リスト
 class PostListView extends ConsumerWidget {
@@ -24,12 +25,7 @@ class PostListView extends ConsumerWidget {
             return InkWell(
               onTap: () async {
                 ref.read(selectedPostProvider.notifier).set(posts[index]);
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const PostPage(),
-                  ),
-                );
+                context.goNamed(RouteConfigs.post.name);
               },
               child: Card(
                 child: ListTile(
