@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:riverpod_layered_architecture/presentation/components/widget_ref.dart';
 import 'package:riverpod_layered_architecture/presentation/pages/post/components/post_button.dart';
 import 'package:riverpod_layered_architecture/presentation/pages/post/components/post_text_form_field.dart';
+import 'package:riverpod_layered_architecture/presentation/router_config.dart';
 
 import '../../../application/state/result.dart';
 import '../../../application/state/selected_post.dart';
@@ -17,7 +19,7 @@ class PostPage extends ConsumerWidget {
       addPostResultProvider,
       completeMessage: '新規投稿しました',
       complete: (_) {
-        Navigator.pop(context);
+        context.goNamed(RouteConfigs.timeLine.name);
       },
     );
 
@@ -26,7 +28,7 @@ class PostPage extends ConsumerWidget {
       updatePostResultProvider,
       completeMessage: '投稿内容を更新しました',
       complete: (_) {
-        Navigator.pop(context);
+        context.goNamed(RouteConfigs.timeLine.name);
       },
     );
 

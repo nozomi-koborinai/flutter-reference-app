@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:riverpod_layered_architecture/application/state/result.dart';
 import 'package:riverpod_layered_architecture/presentation/components/widget_ref.dart';
-import 'package:riverpod_layered_architecture/presentation/pages/post/post_page.dart';
 import 'package:riverpod_layered_architecture/presentation/pages/time_line/components/post_list_view.dart';
+import 'package:riverpod_layered_architecture/presentation/router_config.dart';
 
 import '../../../application/state/selected_post.dart';
 
@@ -20,16 +21,15 @@ class TimeLinePage extends ConsumerWidget {
     );
 
     return Scaffold(
-        appBar: AppBar(title: const Text('タイムライン')),
-        floatingActionButton: FloatingActionButton(
-            child: const Icon(Icons.chat_bubble_outline_outlined),
-            onPressed: () async {
-              ref.read(selectedPostProvider.notifier).set(null);
-              await Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const PostPage()),
-              );
-            }),
-        body: const PostListView());
+      appBar: AppBar(title: const Text('タイムライン')),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.chat_bubble_outline_outlined),
+        onPressed: () async {
+          ref.read(selectedPostProvider.notifier).set(null);
+          context.goNamed(RouteConfigs.post.name);
+        },
+      ),
+      body: const PostListView(),
+    );
   }
 }
