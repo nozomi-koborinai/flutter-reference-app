@@ -20,16 +20,20 @@ class TimeLinePage extends ConsumerWidget {
     );
 
     return Scaffold(
-        appBar: AppBar(title: const Text('タイムライン')),
-        floatingActionButton: FloatingActionButton(
-            child: const Icon(Icons.chat_bubble_outline_outlined),
-            onPressed: () async {
-              ref.read(selectedPostProvider.notifier).set(null);
-              await Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const PostPage()),
-              );
-            }),
-        body: const PostListView());
+      appBar: AppBar(title: const Text('タイムライン')),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.chat_bubble_outline_outlined),
+        onPressed: () async {
+          ref.read(selectedPostProvider.notifier).set(null);
+          await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const PostPage(),
+            ),
+          );
+        },
+      ),
+      body: const PostListView(),
+    );
   }
 }

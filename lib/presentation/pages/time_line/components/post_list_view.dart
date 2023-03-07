@@ -26,17 +26,23 @@ class PostListView extends ConsumerWidget {
                 ref.read(selectedPostProvider.notifier).set(posts[index]);
                 await Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const PostPage()),
+                  MaterialPageRoute(
+                    builder: (context) => const PostPage(),
+                  ),
                 );
               },
               child: Card(
                 child: ListTile(
                   leading: const CircleAvatar(
-                      child: Icon(Icons.face_retouching_natural_sharp)),
+                    child: Icon(Icons.face_retouching_natural_sharp),
+                  ),
                   title: Text(posts[index].content),
                   subtitle: Text(posts[index].contributor),
                   trailing: IconButton(
-                    icon: Icon(Icons.delete, color: HexColor('#696969')),
+                    icon: Icon(
+                      Icons.delete,
+                      color: HexColor('#696969'),
+                    ),
                     onPressed: () => ref
                         .read(postServiceProvider)
                         .deletePost(id: posts[index].id!),
