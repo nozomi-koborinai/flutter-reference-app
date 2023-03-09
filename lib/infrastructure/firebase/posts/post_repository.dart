@@ -29,11 +29,7 @@ class FirebasePostRepository implements IPostRepository {
     return collectionRef.orderBy('content', descending: false).snapshots().map(
           (snapshot) => snapshot.docs
               .map(
-                (doc) => Post(
-                  id: doc.id,
-                  content: doc.data().content,
-                  contributor: doc.data().contributor,
-                ),
+                (doc) => doc.data().toPost(id: doc.id),
               )
               .toList(),
         );
@@ -59,5 +55,16 @@ class FirebasePostRepository implements IPostRepository {
   @override
   void dispose() {
     // 本クラスでは特別後始末が必要なものは無し
+  }
+}
+
+extension _PostDocumentEx on PostDocument {
+  /// PostDocument => Post
+  Post toPost({required String id}) {
+    return Post(
+      content: content,
+      contributor: contributor,
+      id: id,
+    );
   }
 }
