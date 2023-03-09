@@ -8,39 +8,8 @@ import 'documents/post_document.dart';
 
 /// Firebase 投稿リポジトリ
 class FirebasePostRepository implements IPostRepository {
-  FirebasePostRepository({
-    required this.collectionRef,
-  }) {
-    // postsコレクションの変更を監視する
-    _postsSubscription = _postsQuery.snapshots().listen((snapshot) {
-      if (_postsStreamController.isClosed) {
-        return;
-      }
-
-      final latest =
-          snapshot.docs.map((doc) => doc.data().toPost(id: doc.id)).toList();
-
-      _postsStreamController.add(latest);
-    });
-  }
-
+  FirebasePostRepository({required this.collectionRef});
   final CollectionReference<PostDocument> collectionRef;
-
-  final _postsStreamController = StreamController<List<Post>>.broadcast();
-
-  /// コレクションの監視をキャンセルするために保持
-  StreamSubscription<QuerySnapshot<PostDocument>>? _postsSubscription;
-
-  /// 投稿リストのクエリ
-  ///
-  /// ＜検索条件＞
-  /// ORDER BY content ASC
-  Query<PostDocument> get _postsQuery => collectionRef
-      .withConverter<PostDocument>(
-        fromFirestore: (snapshot, _) => PostDocument.fromJson(snapshot.data()!),
-        toFirestore: (postDoc, options) => postDoc.toJson(),
-      )
-      .orderBy('content', descending: false);
 
   /// Create：投稿新規追加
   @override
@@ -53,16 +22,17 @@ class FirebasePostRepository implements IPostRepository {
     );
   }
 
-  /// Read：postコレクション.documentIdに紐づく投稿を取得
+  // Read：postsコレクションの全ドキュメントをStreamとして取得
   @override
-  Stream<List<Post>> postsChanges() {
-    return _postsStreamController.stream;
-  }
-
-  @override
-  Future<List<Post>> fetchPosts() async {
-    final snapshot = await _postsQuery.get();
-    return snapshot.docs.map((doc) => doc.data().toPost(id: doc.id)).toList();
+  Stream<List<Post>> streamAllPosts() {
+    // TODO:ソート対象をcreatedAtにする
+    return collectionRef.orderBy('content', descending: false).snapshots().map(
+          (snapshot) => snapshot.docs
+              .map(
+                (doc) => doc.data().toPost(id: doc.id),
+              )
+              .toList(),
+        );
   }
 
   /// Update：postコレクション.documentIdに紐づく投稿を更新
@@ -84,7 +54,6 @@ class FirebasePostRepository implements IPostRepository {
 
   @override
   void dispose() {
-    _postsSubscription?.cancel();
-    _postsStreamController.close();
+    // 本クラスでは特別後始末が必要なものは無し
   }
 }
