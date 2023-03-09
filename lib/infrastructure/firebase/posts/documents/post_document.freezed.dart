@@ -107,9 +107,8 @@ class __$$_PostDocumentCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PostDocument extends _PostDocument with DiagnosticableTreeMixin {
-  const _$_PostDocument({required this.content, required this.contributor})
-      : super._();
+class _$_PostDocument with DiagnosticableTreeMixin implements _PostDocument {
+  const _$_PostDocument({required this.content, required this.contributor});
 
   factory _$_PostDocument.fromJson(Map<String, dynamic> json) =>
       _$$_PostDocumentFromJson(json);
@@ -161,11 +160,10 @@ class _$_PostDocument extends _PostDocument with DiagnosticableTreeMixin {
   }
 }
 
-abstract class _PostDocument extends PostDocument {
+abstract class _PostDocument implements PostDocument {
   const factory _PostDocument(
       {required final String content,
       required final String contributor}) = _$_PostDocument;
-  const _PostDocument._() : super._();
 
   factory _PostDocument.fromJson(Map<String, dynamic> json) =
       _$_PostDocument.fromJson;
