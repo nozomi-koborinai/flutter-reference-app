@@ -1,8 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import '../../../../domain/models/post.dart';
-
 part 'post_document.freezed.dart';
 part 'post_document.g.dart';
 
@@ -13,17 +10,6 @@ class PostDocument with _$PostDocument {
     required String contributor,
   }) = _PostDocument;
 
-  const PostDocument._();
-
   factory PostDocument.fromJson(Map<String, dynamic> json) =>
       _$PostDocumentFromJson(json);
-
-  /// PostDocument -> Post
-  Post toPost({required String id}) {
-    return Post(
-      content: content,
-      contributor: contributor,
-      id: id,
-    );
-  }
 }

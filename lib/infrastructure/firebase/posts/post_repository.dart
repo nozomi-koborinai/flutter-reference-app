@@ -29,7 +29,11 @@ class FirebasePostRepository implements IPostRepository {
     return collectionRef.orderBy('content', descending: false).snapshots().map(
           (snapshot) => snapshot.docs
               .map(
-                (doc) => doc.data().toPost(id: doc.id),
+                (doc) => Post(
+                  id: doc.id,
+                  content: doc.data().content,
+                  contributor: doc.data().contributor,
+                ),
               )
               .toList(),
         );
