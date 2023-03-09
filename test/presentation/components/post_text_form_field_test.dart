@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:riverpod_layered_architecture/application/state/selected_post.dart';
-import 'package:riverpod_layered_architecture/domain/models/post.dart';
-import 'package:riverpod_layered_architecture/presentation/pages/post/components/post_text_form_field.dart';
+import 'package:flutter_reference_app/application/state/selected_post.dart';
+import 'package:flutter_reference_app/domain/models/post.dart';
+import 'package:flutter_reference_app/presentation/pages/post/components/post_text_form_field.dart';
 
 import '../../test_agent.dart';
 

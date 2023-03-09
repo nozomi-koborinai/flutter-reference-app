@@ -1,4 +1,4 @@
-# Riverpod Layered Architecture
+# Flutter Reference App
 <img width="500" src="https://user-images.githubusercontent.com/39579511/213900273-c6341b61-60cf-4262-b3c7-65b901c9eeaa.png">
 
 ## 4-layer architecture
