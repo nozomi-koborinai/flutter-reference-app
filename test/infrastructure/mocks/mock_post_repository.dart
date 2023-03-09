@@ -31,12 +31,9 @@ class MockPostRepository implements IPostRepository {
   void dispose() {}
 
   @override
-  Future<List<Post>> fetchPosts() async {
-    return posts;
+  Stream<List<Post>> streamAllPosts() async* {
+    yield posts;
   }
-
-  @override
-  Stream<List<Post>> postsChanges() async* {}
 
   @override
   Future<void> updatePost({required Post post}) async {

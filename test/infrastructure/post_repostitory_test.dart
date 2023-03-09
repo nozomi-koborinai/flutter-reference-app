@@ -66,7 +66,7 @@ void main() {
     });
   });
 
-  group('postRepositoryのテスト:全件取得時', () async {
+  group('postRepositoryのテスト:全件取得時', () {
     test('投稿が全件取得できること', () async {
       final repository =
           agent.container.read(postRepositoryProvider) as MockPostRepository;
@@ -77,26 +77,28 @@ void main() {
           contributor: '投稿者6',
         ),
       );
-      final posts = await repository.fetchPosts();
-      expect(posts.length, 6);
-      expect(posts[0].id, '001');
-      expect(posts[0].content, '投稿1');
-      expect(posts[0].contributor, '投稿者1');
-      expect(posts[1].id, '002');
-      expect(posts[1].content, '投稿2');
-      expect(posts[1].contributor, '投稿者2');
-      expect(posts[2].id, '003');
-      expect(posts[2].content, '投稿3');
-      expect(posts[2].contributor, '投稿者3');
-      expect(posts[3].id, '004');
-      expect(posts[3].content, '投稿4');
-      expect(posts[3].contributor, '投稿者4');
-      expect(posts[4].id, '005');
-      expect(posts[4].content, '投稿5');
-      expect(posts[4].contributor, '投稿者5');
-      expect(posts[5].id, '006');
-      expect(posts[5].content, '投稿6');
-      expect(posts[5].contributor, '投稿者6');
+      final postsStream = repository.streamAllPosts();
+      await for (final posts in postsStream) {
+        expect(posts.length, 6);
+        expect(posts[0].id, '001');
+        expect(posts[0].content, '投稿1');
+        expect(posts[0].contributor, '投稿者1');
+        expect(posts[1].id, '002');
+        expect(posts[1].content, '投稿2');
+        expect(posts[1].contributor, '投稿者2');
+        expect(posts[2].id, '003');
+        expect(posts[2].content, '投稿3');
+        expect(posts[2].contributor, '投稿者3');
+        expect(posts[3].id, '004');
+        expect(posts[3].content, '投稿4');
+        expect(posts[3].contributor, '投稿者4');
+        expect(posts[4].id, '005');
+        expect(posts[4].content, '投稿5');
+        expect(posts[4].contributor, '投稿者5');
+        expect(posts[5].id, '006');
+        expect(posts[5].content, '投稿6');
+        expect(posts[5].contributor, '投稿者6');
+      }
     });
   });
 }

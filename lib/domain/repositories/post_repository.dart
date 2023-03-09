@@ -9,14 +9,8 @@ final postRepositoryProvider = Provider<IPostRepository>(
 );
 
 /// PostRepositoryから投稿一覧を取得するプロバイダー
-final postsProvider = FutureProvider(
-  (ref) async {
-    final repository = ref.watch(postRepositoryProvider);
-    repository.postsChanges().listen((latest) {
-      ref.state = AsyncValue.data(latest);
-    });
-    return repository.fetchPosts();
-  },
+final postsProvider = StreamProvider(
+  (ref) => ref.watch(postRepositoryProvider).streamAllPosts(),
 );
 
 /// 投稿リポジトリインタフェース
@@ -25,8 +19,7 @@ abstract class IPostRepository {
   Future<void> addPost({required Post post});
 
   /// Read
-  Stream<List<Post>> postsChanges();
-  Future<List<Post>> fetchPosts();
+  Stream<List<Post>> streamAllPosts();
 
   /// Update
   Future<void> updatePost({required Post post});
