@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:riverpod_layered_architecture/domain/models/post.dart';
-import 'package:riverpod_layered_architecture/domain/repositories/post_repository.dart';
+import 'package:flutter_reference_app/domain/models/post.dart';
+import 'package:flutter_reference_app/domain/repositories/post_repository.dart';
 
 import '../test_agent.dart';
 import 'mocks/mock_post_repository.dart';

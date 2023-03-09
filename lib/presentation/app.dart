@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_layered_architecture/presentation/router_config.dart';
-import 'package:riverpod_layered_architecture/presentation/theme.dart';
+import 'package:flutter_reference_app/presentation/router_config.dart';
+import 'package:flutter_reference_app/presentation/theme.dart';
 
 import 'components/loading.dart';
 import 'components/scaffold_messenger.dart';
@@ -12,7 +12,7 @@ class App extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp.router(
-      title: 'Riverpod Layered Architecture',
+      title: 'Flutter Reference App',
       debugShowCheckedModeBanner: false,
       routerConfig: ref.watch(routerConfigProvider),
       scaffoldMessengerKey: ref.watch(scaffoldMessengerKeyProvider),

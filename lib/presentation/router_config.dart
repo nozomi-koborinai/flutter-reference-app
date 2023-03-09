@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:riverpod_layered_architecture/presentation/pages/post/post_page.dart';
-import 'package:riverpod_layered_architecture/presentation/pages/time_line/time_line_page.dart';
+import 'package:flutter_reference_app/presentation/pages/post/post_page.dart';
+import 'package:flutter_reference_app/presentation/pages/time_line/time_line_page.dart';
 
 // GoRoute.path/name プロパティの設定値を保持する列挙体
 enum RouteConfigs {

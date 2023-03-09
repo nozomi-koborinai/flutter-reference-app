@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:riverpod_layered_architecture/application/state/result.dart';
-import 'package:riverpod_layered_architecture/presentation/components/widget_ref.dart';
-import 'package:riverpod_layered_architecture/presentation/pages/time_line/components/post_list_view.dart';
-import 'package:riverpod_layered_architecture/presentation/router_config.dart';
+import 'package:flutter_reference_app/application/state/result.dart';
+import 'package:flutter_reference_app/presentation/components/widget_ref.dart';
+import 'package:flutter_reference_app/presentation/pages/time_line/components/post_list_view.dart';
+import 'package:flutter_reference_app/presentation/router_config.dart';
 
 import '../../../application/state/selected_post.dart';
 
