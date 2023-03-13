@@ -1,18 +1,6 @@
 # Flutter Reference App
 <img width="500" src="https://user-images.githubusercontent.com/39579511/213900273-c6341b61-60cf-4262-b3c7-65b901c9eeaa.png">
 
-## 4-layer architecture
-- RiverpodのDI（依存性注入）機能を活用して各レイヤーを疎結合に扱います。
-- 各レイヤーの説明
-  - Presentation層
-    - ユーザーとの I/F を担う層。Application 層と Domain 層に依存する。Infrastructure 層に依存してはいけない。
-  - Application層
-    - アプリケーションのロジックや状態を定義する層。Domain 層に依存する。Presentation 層と Infrastructure 層に依存してはいけない。
-  - Domain層
-    - ドメインロジックやドメインオブジェクト（エンティティ）を定義する層。どの層にも依存してはいけない。
-  - Infrastructure層
-    - データの永続化や外部サービス連携を担う層。Domain 層に依存する。Presentation 層と Application 層に依存してはいけない。
-
 ## 題材：超簡易掲示板
 本アーキテクチャを用いて、最小限のCRUD操作を実装したWebアプリです。
 | CRUD操作| 対象機能 | イメージ |
