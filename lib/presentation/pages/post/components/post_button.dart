@@ -25,7 +25,7 @@ class PostButton extends ConsumerWidget {
                   contributor: contributorController.text,
                 );
             viewUtils.showSnackBar(
-              message: '投稿内容を登録しました',
+              message: '新規投稿しました',
             );
           } catch (e) {
             viewUtils.showSnackBar(
