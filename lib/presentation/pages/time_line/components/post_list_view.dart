@@ -41,17 +41,16 @@ class PostListView extends ConsumerWidget {
                         color: HexColor('#696969'),
                       ),
                       onPressed: () async {
+                        final viewUtils = ref.read(viewUtilsProvider);
                         try {
                           await ref
                               .read(postServiceProvider)
                               .deletePost(id: posts[index].id!);
-                          ViewUtils.instance.showSnackBar(
-                            context: context,
+                          viewUtils.showSnackBar(
                             message: '投稿を削除しました',
                           );
                         } catch (e) {
-                          ViewUtils.instance.showSnackBar(
-                            context: context,
+                          viewUtils.showSnackBar(
                             message: e.toString(),
                             mode: SnackBarMode.failure,
                           );
