@@ -19,15 +19,23 @@ class PostService {
   final Ref ref;
 
   /// 新規投稿ボタン押下時処理
-  addPost({required String content, required String contributor}) async {
-    /// 処理開始なので状態をローディングに設定する
-    final notifier = ref.read(addPostResultProvider.notifier);
-    notifier.state = const AsyncValue.loading();
-    notifier.state = await AsyncValue.guard(() async {
-      return await ref
-          .read(postRepositoryProvider)
-          .addPost(post: Post(content: content, contributor: contributor));
-    });
+  Future<void> addPost({
+    required String content,
+    required String contributor,
+  }) async {
+    ref.read(overlayLoadingProvider.notifier).update((_) => true);
+    try {
+      await ref.read(postRepositoryProvider).addPost(
+            post: Post(
+              content: content,
+              contributor: contributor,
+            ),
+          );
+    } catch (e) {
+      rethrow;
+    } finally {
+      ref.read(overlayLoadingProvider.notifier).update((_) => false);
+    }
   }
 
   /// 投稿編集ボタン押下時
@@ -54,7 +62,6 @@ class PostService {
 
   /// 削除ボタン押下時処理
   Future<void> deletePost({required String id}) async {
-    /// 処理開始なので状態をローディングに設定する
     ref.read(overlayLoadingProvider.notifier).update((_) => true);
     try {
       await ref.read(postRepositoryProvider).deletePostFromId(docId: id);

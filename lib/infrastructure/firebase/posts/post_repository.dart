@@ -14,12 +14,18 @@ class FirebasePostRepository implements IPostRepository {
   /// Create：投稿新規追加
   @override
   Future<void> addPost({required Post post}) async {
-    await collectionRef.add(
-      PostDocument(
-        content: post.content,
-        contributor: post.contributor,
-      ),
-    );
+    try {
+      await collectionRef.add(
+        PostDocument(
+          content: post.content,
+          contributor: post.contributor,
+        ),
+      );
+    } on FirebaseException catch (e) {
+      throw ('Firestore の追加処理でエラーが発生しました: ${e.code}');
+    } catch (e) {
+      throw ('予期しないエラーが発生しました: $e');
+    }
   }
 
   // Read：postsコレクションの全ドキュメントをStreamとして取得
