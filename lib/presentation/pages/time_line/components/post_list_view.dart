@@ -36,26 +36,27 @@ class PostListView extends ConsumerWidget {
                   title: Text(posts[index].content),
                   subtitle: Text(posts[index].contributor),
                   trailing: IconButton(
-                      icon: Icon(
-                        Icons.delete,
-                        color: HexColor('#696969'),
-                      ),
-                      onPressed: () async {
-                        final viewUtils = ref.read(viewUtilsProvider);
-                        try {
-                          await ref
-                              .read(postServiceProvider)
-                              .deletePost(id: posts[index].id!);
-                          viewUtils.showSnackBar(
-                            message: '投稿を削除しました',
-                          );
-                        } catch (e) {
-                          viewUtils.showSnackBar(
-                            message: e.toString(),
-                            mode: SnackBarMode.failure,
-                          );
-                        }
-                      }),
+                    icon: Icon(
+                      Icons.delete,
+                      color: HexColor('#696969'),
+                    ),
+                    onPressed: () async {
+                      final viewUtils = ref.read(viewUtilsProvider);
+                      try {
+                        await ref
+                            .read(postServiceProvider)
+                            .deletePost(id: posts[index].id!);
+                        viewUtils.showSnackBar(
+                          message: '投稿を削除しました',
+                        );
+                      } catch (e) {
+                        viewUtils.showSnackBar(
+                          message: e.toString(),
+                          mode: SnackBarMode.failure,
+                        );
+                      }
+                    },
+                  ),
                 ),
               ),
             );
