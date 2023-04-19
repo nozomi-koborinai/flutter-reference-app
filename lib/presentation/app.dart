@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_reference_app/presentation/router_config.dart';
 import 'package:flutter_reference_app/presentation/theme.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'components/loading.dart';
 import 'components/scaffold_messenger.dart';
