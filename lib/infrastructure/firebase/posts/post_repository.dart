@@ -49,7 +49,13 @@ class FirebasePostRepository implements IPostRepository {
   /// Delete：postコレクション.documentIdをに紐づく投稿を削除
   @override
   Future<void> deletePostFromId({required String docId}) async {
-    collectionRef.doc(docId).delete();
+    try {
+      collectionRef.doc(docId).delete();
+    } on FirebaseException catch (e) {
+      throw ('Firestore の削除処理でエラーが発生しました: ${e.code}');
+    } catch (e) {
+      throw ('予期しないエラーが発生しました: $e');
+    }
   }
 
   @override

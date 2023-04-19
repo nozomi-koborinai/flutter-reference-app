@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_reference_app/presentation/router_config.dart';
+import 'package:flutter_reference_app/presentation/view_utils.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -35,14 +36,27 @@ class PostListView extends ConsumerWidget {
                   title: Text(posts[index].content),
                   subtitle: Text(posts[index].contributor),
                   trailing: IconButton(
-                    icon: Icon(
-                      Icons.delete,
-                      color: HexColor('#696969'),
-                    ),
-                    onPressed: () => ref
-                        .read(postServiceProvider)
-                        .deletePost(id: posts[index].id!),
-                  ),
+                      icon: Icon(
+                        Icons.delete,
+                        color: HexColor('#696969'),
+                      ),
+                      onPressed: () async {
+                        try {
+                          await ref
+                              .read(postServiceProvider)
+                              .deletePost(id: posts[index].id!);
+                          ViewUtils.instance.showSnackBar(
+                            context: context,
+                            message: '投稿を削除しました',
+                          );
+                        } catch (e) {
+                          ViewUtils.instance.showSnackBar(
+                            context: context,
+                            message: e.toString(),
+                            mode: SnackBarMode.failure,
+                          );
+                        }
+                      }),
                 ),
               ),
             );

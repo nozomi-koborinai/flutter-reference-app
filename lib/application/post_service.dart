@@ -1,5 +1,6 @@
 import 'package:flutter_reference_app/application/state/result.dart';
 import 'package:flutter_reference_app/domain/repositories/post_repository.dart';
+import 'package:flutter_reference_app/presentation/components/loading.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../domain/models/post.dart';
@@ -52,14 +53,15 @@ class PostService {
   }
 
   /// 削除ボタン押下時処理
-  deletePost({required String id}) async {
+  Future<void> deletePost({required String id}) async {
     /// 処理開始なので状態をローディングに設定する
-    final notifier = ref.read(deletePostResultProvider.notifier);
-    notifier.state = const AsyncValue.loading();
-    notifier.state = await AsyncValue.guard(
-      () async {
-        await ref.read(postRepositoryProvider).deletePostFromId(docId: id);
-      },
-    );
+    ref.read(overlayLoadingProvider.notifier).update((_) => true);
+    try {
+      await ref.read(postRepositoryProvider).deletePostFromId(docId: id);
+    } catch (e) {
+      rethrow;
+    } finally {
+      ref.read(overlayLoadingProvider.notifier).update((_) => false);
+    }
   }
 }
