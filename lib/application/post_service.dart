@@ -1,6 +1,6 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_reference_app/application/state/result.dart';
 import 'package:flutter_reference_app/domain/repositories/post_repository.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../domain/models/post.dart';
 
