@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_reference_app/presentation/components/loading.dart';
+import 'package:flutter_reference_app/presentation/error_handler_mixin.dart';
 import 'package:flutter_reference_app/presentation/router_config.dart';
 import 'package:flutter_reference_app/presentation/view_utils.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,19 +9,27 @@ import 'package:hexcolor/hexcolor.dart';
 
 import '../../../../application/post/post_service.dart';
 import '../../../../application/state/selected_post.dart';
-import '../../../../domain/post/entity/post.dart';
 import '../../../../domain/post/post_repository.dart';
-import '../../../components/async_value_handler.dart';
 
 /// 投稿一覧リスト
-class PostListView extends ConsumerWidget {
+class PostListView extends ConsumerWidget with ErrorHandlerMixin {
   const PostListView({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return AsyncValueHandler(
-      value: ref.watch(postsProvider),
-      builder: (List<Post> posts) {
+    final postsAsyncValue = ref.watch(postsProvider);
+    return postsAsyncValue.when(
+      loading: () {
+        return const OverlayLoading();
+      },
+      error: (error, stackTrace) {
+        ref.read(viewUtilsProvider).showSnackBar(
+              message: error.toString(),
+              mode: SnackBarMode.failure,
+            );
+        return const SizedBox();
+      },
+      data: (posts) {
         return ListView.builder(
           itemCount: posts.length,
           itemBuilder: (context, index) {
@@ -41,20 +51,14 @@ class PostListView extends ConsumerWidget {
                       color: HexColor('#696969'),
                     ),
                     onPressed: () async {
-                      final viewUtils = ref.read(viewUtilsProvider);
-                      try {
-                        await ref
+                      execute(
+                        context,
+                        ref,
+                        () => ref
                             .read(postServiceProvider)
-                            .deletePost(id: posts[index].id!);
-                        viewUtils.showSnackBar(
-                          message: '投稿を削除しました',
-                        );
-                      } catch (e) {
-                        viewUtils.showSnackBar(
-                          message: e.toString(),
-                          mode: SnackBarMode.failure,
-                        );
-                      }
+                            .deletePost(id: posts[index].id!),
+                        successMessage: '投稿を削除しました',
+                      );
                     },
                   ),
                 ),
