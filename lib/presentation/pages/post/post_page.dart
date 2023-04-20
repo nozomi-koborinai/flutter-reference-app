@@ -10,24 +10,6 @@ class PostPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // // 新規投稿結果を監視する
-    // ref.listenResult<void>(
-    //   addPostResultProvider,
-    //   completeMessage: '新規投稿しました',
-    //   complete: (_) {
-    //     context.goNamed(RouteConfigs.timeLine.name);
-    //   },
-    // );
-
-    // // 投稿変更結果を監視する
-    // ref.listenResult<void>(
-    //   updatePostResultProvider,
-    //   completeMessage: '投稿内容を更新しました',
-    //   complete: (_) {
-    //     context.goNamed(RouteConfigs.timeLine.name);
-    //   },
-    // );
-
     // 選択中投稿情報を取得する
     final selectedPost = ref.read(selectedPostProvider);
 
