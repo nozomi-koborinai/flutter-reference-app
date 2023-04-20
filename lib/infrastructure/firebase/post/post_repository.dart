@@ -44,25 +44,40 @@ class FirebasePostRepository implements IPostRepository {
   // Read：postsコレクションの全ドキュメントをStreamとして取得
   @override
   Stream<List<Post>> streamAllPosts() {
-    // TODO:ソート対象をcreatedAtにする
-    return collectionRef.orderBy('content', descending: false).snapshots().map(
-          (snapshot) => snapshot.docs
-              .map(
-                (doc) => doc.data().toPost(id: doc.id),
-              )
-              .toList(),
-        );
+    try {
+      // TODO:ソート対象をcreatedAtにする
+      return collectionRef
+          .orderBy('content', descending: false)
+          .snapshots()
+          .map(
+            (snapshot) => snapshot.docs
+                .map(
+                  (doc) => doc.data().toPost(id: doc.id),
+                )
+                .toList(),
+          );
+    } on FirebaseException catch (e) {
+      throw ('Firestore の読取処理でエラーが発生しました: ${e.code}');
+    } catch (e) {
+      throw ('予期しないエラーが発生しました: $e');
+    }
   }
 
   /// Update：postコレクション.documentIdに紐づく投稿を更新
   @override
   Future<void> updatePost({required Post post}) async {
-    await collectionRef.doc(post.id).update(
-          PostDocument(
-            content: post.content,
-            contributor: post.contributor,
-          ).toJson(),
-        );
+    try {
+      await collectionRef.doc(post.id).update(
+            PostDocument(
+              content: post.content,
+              contributor: post.contributor,
+            ).toJson(),
+          );
+    } on FirebaseException catch (e) {
+      throw ('Firestore の更新処理でエラーが発生しました: ${e.code}');
+    } catch (e) {
+      throw ('予期しないエラーが発生しました: $e');
+    }
   }
 
   /// Delete：postコレクション.documentIdをに紐づく投稿を削除
