@@ -70,7 +70,7 @@ class FirebasePostRepository implements IPostRepository {
   }
 }
 
-extension _PostDocumentEx on PostDocument {
+extension on PostDocument {
   /// PostDocument => Post
   Post toPost({required String id}) {
     return Post(
