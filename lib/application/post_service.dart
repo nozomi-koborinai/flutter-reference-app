@@ -1,6 +1,7 @@
+import 'package:flutter_reference_app/application/run_usecase_mixin.dart';
+import 'package:flutter_reference_app/application/state/overlay_loading_provider.dart';
 import 'package:flutter_reference_app/application/state/result.dart';
 import 'package:flutter_reference_app/domain/repositories/post_repository.dart';
-import 'package:flutter_reference_app/presentation/components/loading.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../domain/models/post.dart';
@@ -11,10 +12,7 @@ final postServiceProvider = Provider(
 );
 
 /// 投稿サービス
-///
-/// 投稿に関する操作を提供する
-/// Widget から呼ばれ、各 Repository や State を操作するロジックを実装する
-class PostService {
+class PostService with RunUsecaseMixin {
   const PostService(this.ref);
   final Ref ref;
 

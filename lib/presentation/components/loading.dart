@@ -1,9 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-final overlayLoadingProvider = StateProvider(
-  (_) => false,
-);
 
 class OverlayLoading extends StatelessWidget {
   const OverlayLoading({
