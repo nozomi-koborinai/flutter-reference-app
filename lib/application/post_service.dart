@@ -1,6 +1,4 @@
 import 'package:flutter_reference_app/application/run_usecase_mixin.dart';
-import 'package:flutter_reference_app/application/state/overlay_loading_provider.dart';
-import 'package:flutter_reference_app/application/state/result.dart';
 import 'package:flutter_reference_app/domain/repositories/post_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -13,60 +11,35 @@ final postServiceProvider = Provider(
 
 /// 投稿サービス
 class PostService with RunUsecaseMixin {
-  const PostService(this.ref);
+  PostService(this.ref) {
+    postRepository = ref.read(postRepositoryProvider);
+  }
   final Ref ref;
+  late IPostRepository postRepository;
 
   /// 新規投稿ボタン押下時処理
   Future<void> addPost({
     required String content,
     required String contributor,
   }) async {
-    ref.read(overlayLoadingProvider.notifier).update((_) => true);
-    try {
-      await ref.read(postRepositoryProvider).addPost(
-            post: Post(
-              content: content,
-              contributor: contributor,
-            ),
-          );
-    } catch (e) {
-      rethrow;
-    } finally {
-      ref.read(overlayLoadingProvider.notifier).update((_) => false);
-    }
+    final post = Post(content: content, contributor: contributor);
+    await execute(ref, () => postRepository.addPost(post: post));
   }
 
   /// 投稿編集ボタン押下時
-  updatePost({
+  Future<void> updatePost({
     required String id,
     required String content,
     required String contributor,
   }) async {
-    /// 処理開始なので状態をローディングに設定する
-    final notifier = ref.read(updatePostResultProvider.notifier);
-    notifier.state = const AsyncValue.loading();
-    notifier.state = await AsyncValue.guard(
-      () async {
-        await ref.read(postRepositoryProvider).updatePost(
-              post: Post(
-                id: id,
-                content: content,
-                contributor: contributor,
-              ),
-            );
-      },
-    );
+    final post = Post(id: id, content: content, contributor: contributor);
+    await execute(ref, () => postRepository.updatePost(post: post));
   }
 
   /// 削除ボタン押下時処理
-  Future<void> deletePost({required String id}) async {
-    ref.read(overlayLoadingProvider.notifier).update((_) => true);
-    try {
-      await ref.read(postRepositoryProvider).deletePostFromId(docId: id);
-    } catch (e) {
-      rethrow;
-    } finally {
-      ref.read(overlayLoadingProvider.notifier).update((_) => false);
-    }
+  Future<void> deletePost({
+    required String id,
+  }) async {
+    await execute(ref, () => postRepository.deletePostFromId(docId: id));
   }
 }
