@@ -69,7 +69,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '912436399609',
     projectId: 'riverpod-mvvm-93799',
     storageBucket: 'riverpod-mvvm-93799.appspot.com',
-    iosClientId: '912436399609-odi4rvehktnoglrn66kl1tht6arvrv6m.apps.googleusercontent.com',
+    iosClientId:
+        '912436399609-odi4rvehktnoglrn66kl1tht6arvrv6m.apps.googleusercontent.com',
     iosBundleId: 'com.example.repositoryRiverpodMvvm',
   );
 }

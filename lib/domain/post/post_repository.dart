@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../models/post.dart';
+import 'entity/post.dart';
 
 /// 投稿リポジトリインタフェースプロバイダー
 /// 通常アプリ起動時 or テスト時に本プロバイダーをoverrideして使用してください

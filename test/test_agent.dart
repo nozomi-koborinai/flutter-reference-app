@@ -1,6 +1,6 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_reference_app/application/state/selected_post.dart';
-import 'package:flutter_reference_app/domain/repositories/post_repository.dart';
+import 'package:flutter_reference_app/domain/post/post_repository.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'infrastructure/mocks/mock_post_repository.dart';
 

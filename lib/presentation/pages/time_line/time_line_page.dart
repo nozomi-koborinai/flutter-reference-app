@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
-import 'package:flutter_reference_app/application/state/result.dart';
-import 'package:flutter_reference_app/presentation/components/widget_ref.dart';
 import 'package:flutter_reference_app/presentation/pages/time_line/components/post_list_view.dart';
 import 'package:flutter_reference_app/presentation/router_config.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../application/state/selected_post.dart';
 
@@ -14,12 +12,6 @@ class TimeLinePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // 投稿削除結果を監視する
-    ref.listenResult<void>(
-      deletePostResultProvider,
-      completeMessage: '投稿を削除しました',
-    );
-
     return Scaffold(
       appBar: AppBar(title: const Text('タイムライン')),
       floatingActionButton: FloatingActionButton(
