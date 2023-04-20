@@ -1,8 +1,8 @@
-import 'package:flutter_reference_app/application/run_usecase_mixin.dart';
-import 'package:flutter_reference_app/domain/repositories/post_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../domain/models/post.dart';
+import '../../domain/post/entity/post.dart';
+import '../../domain/post/post_repository.dart';
+import '../run_usecase_mixin.dart';
 
 /// 投稿サービスプロバイダー
 final postServiceProvider = Provider(

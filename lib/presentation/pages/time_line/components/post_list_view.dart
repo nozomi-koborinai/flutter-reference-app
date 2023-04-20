@@ -5,10 +5,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-import '../../../../application/post_service.dart';
+import '../../../../application/post/post_service.dart';
 import '../../../../application/state/selected_post.dart';
-import '../../../../domain/models/post.dart';
-import '../../../../domain/repositories/post_repository.dart';
+import '../../../../domain/post/entity/post.dart';
+import '../../../../domain/post/post_repository.dart';
 import '../../../components/async_value_handler.dart';
 
 /// 投稿一覧リスト

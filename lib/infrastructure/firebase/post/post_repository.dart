@@ -1,10 +1,23 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../domain/models/post.dart';
-import '../../../domain/repositories/post_repository.dart';
-import 'documents/post_document.dart';
+import '../../../domain/post/entity/post.dart';
+import '../../../domain/post/post_repository.dart';
+import '../firebase_providers.dart';
+import 'document/post_document.dart';
+
+/// 投稿コレクション参照プロバイダー
+final postCollectionRefProvider = Provider(
+  (ref) => ref
+      .watch(firebaseFirestoreProvider)
+      .collection('post')
+      .withConverter<PostDocument>(
+        fromFirestore: (snapshot, _) => PostDocument.fromJson(snapshot.data()!),
+        toFirestore: (postDoc, options) => postDoc.toJson(),
+      ),
+);
 
 /// Firebase 投稿リポジトリ
 class FirebasePostRepository implements IPostRepository {

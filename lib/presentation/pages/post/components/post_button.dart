@@ -4,7 +4,7 @@ import 'package:flutter_reference_app/presentation/view_utils.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../application/post_service.dart';
+import '../../../../application/post/post_service.dart';
 import '../../../../application/state/selected_post.dart';
 import '../../../router_config.dart';
 

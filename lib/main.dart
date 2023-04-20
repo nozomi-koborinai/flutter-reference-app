@@ -2,10 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'domain/repositories/post_repository.dart';
+import 'domain/post/post_repository.dart';
 import 'firebase_options.dart';
-import 'infrastructure/firebase/firebase_providers.dart';
-import 'infrastructure/firebase/posts/post_repository.dart';
+import 'infrastructure/firebase/post/post_repository.dart';
 import 'presentation/app.dart';
 
 void main() async {
@@ -18,7 +17,7 @@ void main() async {
         // 各プロバイダーをoverrideする
         postRepositoryProvider.overrideWith((ref) {
           final repository = FirebasePostRepository(
-            collectionRef: ref.watch(postsCollectionRefProvider),
+            collectionRef: ref.watch(postCollectionRefProvider),
           );
           ref.onDispose(repository.dispose);
           return repository;

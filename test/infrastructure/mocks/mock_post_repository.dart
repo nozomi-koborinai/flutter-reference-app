@@ -1,5 +1,5 @@
-import 'package:flutter_reference_app/domain/models/post.dart';
-import 'package:flutter_reference_app/domain/repositories/post_repository.dart';
+import 'package:flutter_reference_app/domain/post/entity/post.dart';
+import 'package:flutter_reference_app/domain/post/post_repository.dart';
 
 /// テスト用のPostRepository
 class MockPostRepository implements IPostRepository {
