@@ -1,11 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../domain/post/usecase/post_usecase.dart';
+import '../../domain/post/post_usecase.dart';
 import '../../domain/post/entity/post.dart';
 import '../../domain/post/post_repository.dart';
 import '../run_usecase_mixin.dart';
 
-/// 投稿サービス
+/// 投稿ユースケース
 class PostUsecaseImpl with RunUsecaseMixin implements PostUsecase {
   PostUsecaseImpl(this.ref) {
     postRepository = ref.read(postRepositoryProvider);
@@ -13,7 +13,7 @@ class PostUsecaseImpl with RunUsecaseMixin implements PostUsecase {
   final Ref ref;
   late PostRepository postRepository;
 
-  /// 新規投稿ボタン押下時処理
+  /// 新規投稿をする
   @override
   Future<void> addPost({
     required String content,
@@ -23,7 +23,7 @@ class PostUsecaseImpl with RunUsecaseMixin implements PostUsecase {
     await execute(ref, () => postRepository.addPost(post: post));
   }
 
-  /// 投稿編集ボタン押下時
+  /// 投稿を編集する
   @override
   Future<void> updatePost({
     required String id,
@@ -34,7 +34,7 @@ class PostUsecaseImpl with RunUsecaseMixin implements PostUsecase {
     await execute(ref, () => postRepository.updatePost(post: post));
   }
 
-  /// 削除ボタン押下時処理
+  /// 投稿を削除する
   @override
   Future<void> deletePost({
     required String id,
