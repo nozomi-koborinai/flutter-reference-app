@@ -4,8 +4,8 @@ import 'package:flutter_reference_app/presentation/theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../usecase/state/overlay_loading_provider.dart';
-import 'components/loading.dart';
-import 'components/scaffold_messenger.dart';
+import 'component/loading.dart';
+import 'component/scaffold_messenger.dart';
 
 class App extends ConsumerWidget {
   const App({Key? key}) : super(key: key);

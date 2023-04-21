@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_reference_app/domain/post/usecase/post_usecase.dart';
-import 'package:flutter_reference_app/presentation/components/loading.dart';
+import 'package:flutter_reference_app/presentation/component/loading.dart';
 import 'package:flutter_reference_app/presentation/error_handler_mixin.dart';
 import 'package:flutter_reference_app/presentation/router_config.dart';
 import 'package:flutter_reference_app/presentation/view_utils.dart';

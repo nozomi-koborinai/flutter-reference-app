@@ -1,6 +1,6 @@
-import 'package:flutter_reference_app/presentation/components/failure_snackbar.dart';
-import 'package:flutter_reference_app/presentation/components/scaffold_messenger.dart';
-import 'package:flutter_reference_app/presentation/components/success_snackbar.dart';
+import 'package:flutter_reference_app/presentation/component/failure_snackbar.dart';
+import 'package:flutter_reference_app/presentation/component/scaffold_messenger.dart';
+import 'package:flutter_reference_app/presentation/component/success_snackbar.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// View に関する Utilityメソッド群 プロバイダー
