@@ -5,11 +5,6 @@ import '../../domain/post/entity/post.dart';
 import '../../domain/post/post_repository.dart';
 import '../run_usecase_mixin.dart';
 
-/// 投稿サービスプロバイダー
-final postServiceProvider = Provider(
-  PostService.new,
-);
-
 /// 投稿サービス
 class PostService with RunUsecaseMixin implements PostUsecase {
   PostService(this.ref) {
