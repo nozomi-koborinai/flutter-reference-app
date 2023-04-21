@@ -20,8 +20,8 @@ final postCollectionRefProvider = Provider(
 );
 
 /// Firebase 投稿リポジトリ
-class FirebasePostRepository implements IPostRepository {
-  FirebasePostRepository({required this.collectionRef});
+class PostRepositoryImpl implements PostRepository {
+  PostRepositoryImpl({required this.collectionRef});
   final CollectionReference<PostDocument> collectionRef;
 
   /// Create：投稿新規追加

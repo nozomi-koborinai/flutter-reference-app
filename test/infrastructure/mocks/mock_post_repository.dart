@@ -2,7 +2,7 @@ import 'package:flutter_reference_app/domain/post/entity/post.dart';
 import 'package:flutter_reference_app/domain/post/post_repository.dart';
 
 /// テスト用のPostRepository
-class MockPostRepository implements IPostRepository {
+class MockPostRepository implements PostRepository {
   List<Post> posts = [
     const Post(id: '001', content: '投稿1', contributor: '投稿者1'),
     const Post(id: '002', content: '投稿2', contributor: '投稿者2'),
