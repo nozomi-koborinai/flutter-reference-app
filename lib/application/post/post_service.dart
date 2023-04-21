@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../domain/post/usecase/post_usecase.dart';
 import '../../domain/post/entity/post.dart';
 import '../../domain/post/post_repository.dart';
 import '../run_usecase_mixin.dart';
@@ -10,7 +11,7 @@ final postServiceProvider = Provider(
 );
 
 /// 投稿サービス
-class PostService with RunUsecaseMixin {
+class PostService with RunUsecaseMixin implements PostUsecase {
   PostService(this.ref) {
     postRepository = ref.read(postRepositoryProvider);
   }
@@ -18,6 +19,7 @@ class PostService with RunUsecaseMixin {
   late IPostRepository postRepository;
 
   /// 新規投稿ボタン押下時処理
+  @override
   Future<void> addPost({
     required String content,
     required String contributor,
@@ -27,6 +29,7 @@ class PostService with RunUsecaseMixin {
   }
 
   /// 投稿編集ボタン押下時
+  @override
   Future<void> updatePost({
     required String id,
     required String content,
@@ -37,6 +40,7 @@ class PostService with RunUsecaseMixin {
   }
 
   /// 削除ボタン押下時処理
+  @override
   Future<void> deletePost({
     required String id,
   }) async {
