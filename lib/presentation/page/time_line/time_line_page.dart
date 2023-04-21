@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_reference_app/presentation/pages/time_line/components/post_list_view.dart';
+import 'package:flutter_reference_app/presentation/page/time_line/component/post_list_view.dart';
 import 'package:flutter_reference_app/presentation/router_config.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';

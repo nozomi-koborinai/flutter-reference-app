@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_reference_app/domain/post/usecase/post_usecase.dart';
+import 'package:flutter_reference_app/domain/post/post_usecase.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'domain/post/post_repository.dart';
@@ -16,10 +16,14 @@ void main() async {
   runApp(
     ProviderScope(
       overrides: [
-        // 各プロバイダーをoverrideする
+        // 各プロバイダーに具象を注入
+
+        // 投稿ユースケース
         postUsecaseProvider.overrideWith((ref) {
           return PostUsecaseImpl(ref);
         }),
+
+        // 投稿リポジトリ
         postRepositoryProvider.overrideWith(
           (ref) {
             final repository = PostRepositoryImpl(
