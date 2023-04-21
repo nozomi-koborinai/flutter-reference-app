@@ -6,12 +6,12 @@ import '../../domain/post/post_repository.dart';
 import '../run_usecase_mixin.dart';
 
 /// 投稿サービス
-class PostService with RunUsecaseMixin implements PostUsecase {
-  PostService(this.ref) {
+class PostUsecaseImpl with RunUsecaseMixin implements PostUsecase {
+  PostUsecaseImpl(this.ref) {
     postRepository = ref.read(postRepositoryProvider);
   }
   final Ref ref;
-  late IPostRepository postRepository;
+  late PostRepository postRepository;
 
   /// 新規投稿ボタン押下時処理
   @override

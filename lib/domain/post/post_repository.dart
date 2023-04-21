@@ -4,7 +4,7 @@ import 'entity/post.dart';
 
 /// 投稿リポジトリインタフェースプロバイダー
 /// 通常アプリ起動時 or テスト時に本プロバイダーをoverrideして使用してください
-final postRepositoryProvider = Provider<IPostRepository>(
+final postRepositoryProvider = Provider<PostRepository>(
   (_) => throw UnimplementedError('Provider was not initialized'),
 );
 
@@ -14,7 +14,7 @@ final postsProvider = StreamProvider(
 );
 
 /// 投稿リポジトリインタフェース
-abstract class IPostRepository {
+abstract class PostRepository {
   /// Create
   Future<void> addPost({required Post post});
 
