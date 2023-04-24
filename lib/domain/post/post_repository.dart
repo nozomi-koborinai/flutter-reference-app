@@ -8,11 +8,6 @@ final postRepositoryProvider = Provider<PostRepository>(
   (_) => throw UnimplementedError('Provider was not initialized'),
 );
 
-/// PostRepositoryから投稿一覧を取得するプロバイダー
-final postsProvider = StreamProvider(
-  (ref) => ref.watch(postRepositoryProvider).streamAllPosts(),
-);
-
 /// 投稿リポジトリインタフェース
 abstract class PostRepository {
   /// Create
