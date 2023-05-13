@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../domain/post/entity/post.dart';
+import '../../../../domain/post/entity/post.dart';
 
 /// 選択中投稿プロバイダー
 final selectedPostProvider =
