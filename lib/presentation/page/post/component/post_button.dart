@@ -4,7 +4,7 @@ import 'package:flutter_reference_app/presentation/page/post/component/post_text
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../usecase/state/selected_post.dart';
+import '../../../../application/usecase/post/state/selected_post.dart';
 import '../../../error_handler_mixin.dart';
 import '../../../router_config.dart';
 

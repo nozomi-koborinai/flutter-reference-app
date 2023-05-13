@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../domain/post/post_usecase.dart';
-import '../../domain/post/entity/post.dart';
-import '../../domain/post/post_repository.dart';
+import '../../../domain/post/entity/post.dart';
+import '../../../domain/post/post_repository.dart';
+import '../../../domain/post/post_usecase.dart';
 import '../run_usecase_mixin.dart';
 
 /// 投稿ユースケース

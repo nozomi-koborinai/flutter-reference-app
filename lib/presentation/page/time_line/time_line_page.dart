@@ -4,7 +4,7 @@ import 'package:flutter_reference_app/presentation/router_config.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../usecase/state/selected_post.dart';
+import '../../../application/usecase/post/state/selected_post.dart';
 
 /// タイムライン（投稿一覧）ページ
 class TimeLinePage extends ConsumerWidget {

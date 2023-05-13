@@ -3,7 +3,7 @@ import 'package:flutter_reference_app/presentation/router_config.dart';
 import 'package:flutter_reference_app/presentation/theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../usecase/state/overlay_loading_provider.dart';
+import '../application/state/overlay_loading_provider.dart';
 import 'component/loading.dart';
 import 'component/scaffold_messenger.dart';
 

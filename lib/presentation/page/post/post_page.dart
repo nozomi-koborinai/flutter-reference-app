@@ -3,7 +3,7 @@ import 'package:flutter_reference_app/presentation/page/post/component/post_butt
 import 'package:flutter_reference_app/presentation/page/post/component/post_text_form_field.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../usecase/state/selected_post.dart';
+import '../../../application/usecase/post/state/selected_post.dart';
 
 class PostPage extends ConsumerWidget {
   const PostPage({Key? key}) : super(key: key);

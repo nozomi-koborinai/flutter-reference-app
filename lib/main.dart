@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_reference_app/domain/post/post_usecase.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'application/usecase/post/post_usecase_impl.dart';
 import 'domain/post/post_repository.dart';
 import 'firebase_options.dart';
 import 'infrastructure/firebase/post/post_repository_impl.dart';
 import 'presentation/app.dart';
-import 'usecase/post/post_usecase_impl.dart';
 
 void main() async {
   await Firebase.initializeApp(

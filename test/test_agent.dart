@@ -1,4 +1,4 @@
-import 'package:flutter_reference_app/usecase/state/selected_post.dart';
+import 'package:flutter_reference_app/application/usecase/post/state/selected_post.dart';
 import 'package:flutter_reference_app/domain/post/post_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

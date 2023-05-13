@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../usecase/state/selected_post.dart';
+import '../../../../application/usecase/post/state/selected_post.dart';
 
 final contentControllerProvider =
     StateProvider.autoDispose<TextEditingController>(
