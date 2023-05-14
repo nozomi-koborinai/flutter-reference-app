@@ -1,5 +1,5 @@
 # Flutter Reference App
-<img width="500" src="https://user-images.githubusercontent.com/39579511/213900273-c6341b61-60cf-4262-b3c7-65b901c9eeaa.png">
+<img width="500" src="doc_image/layered_v2.png">
 
 ## 題材：超簡易掲示板
 本アーキテクチャを用いて、最小限の CRUD 操作を実装した Web アプリです。
