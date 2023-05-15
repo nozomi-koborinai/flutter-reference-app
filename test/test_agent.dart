@@ -16,6 +16,6 @@ class TestAgent {
 
   Future<void> setUp() async {
     container = ProviderContainer(overrides: providerOverrides);
-    container.read(selectedPostProvider.notifier).state = null;
+    container.read(selectedPostProvider.notifier).set(null);
   }
 }
