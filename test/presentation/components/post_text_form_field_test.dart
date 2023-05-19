@@ -16,10 +16,10 @@ void main() {
       await tester.pumpWidget(
         ProviderScope(
           overrides: agent.providerOverrides,
-          child: MaterialApp(
+          child: const MaterialApp(
             home: Scaffold(
               body: Column(
-                children: const [
+                children: [
                   PostContentTextFormField(),
                   PostContributorTextFormField()
                 ],
@@ -42,10 +42,10 @@ void main() {
       await tester.pumpWidget(
         ProviderScope(
           overrides: agent.providerOverrides,
-          child: MaterialApp(
+          child: const MaterialApp(
             home: Scaffold(
               body: Column(
-                children: const [
+                children: [
                   PostContentTextFormField(),
                   PostContributorTextFormField()
                 ],

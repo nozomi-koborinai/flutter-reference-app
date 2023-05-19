@@ -17,10 +17,10 @@ class PostPage extends ConsumerWidget {
       appBar: AppBar(
         title: Text(selectedPost == null ? '投稿' : '編集'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
+      body: const Padding(
+        padding: EdgeInsets.all(8.0),
         child: Column(
-          children: const [
+          children: [
             Padding(
               padding: EdgeInsets.all(8.0),
               child: PostContentTextFormField(),
