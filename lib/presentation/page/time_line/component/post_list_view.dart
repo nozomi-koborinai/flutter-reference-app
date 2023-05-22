@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_reference_app/domain/post/post_usecase.dart';
 import 'package:flutter_reference_app/presentation/component/loading.dart';
 import 'package:flutter_reference_app/presentation/error_handler_mixin.dart';
 import 'package:flutter_reference_app/presentation/router_config.dart';
@@ -8,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hexcolor/hexcolor.dart';
 
+import '../../../../application/usecase/post/post_usecase.dart';
 import '../../../../application/usecase/post/state/posts.dart';
 import '../../../../application/usecase/post/state/selected_post.dart';
 

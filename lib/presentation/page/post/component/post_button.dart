@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_reference_app/domain/post/post_usecase.dart';
 import 'package:flutter_reference_app/presentation/page/post/component/post_text_form_field.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../application/usecase/post/post_usecase.dart';
 import '../../../../application/usecase/post/state/selected_post.dart';
 import '../../../error_handler_mixin.dart';
 import '../../../router_config.dart';
