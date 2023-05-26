@@ -13,7 +13,8 @@
 ## 参考
 
 - [Flutter App Architecture: The Repository Pattern](https://codewithandrea.com/articles/flutter-repository-pattern/)
-- [共同開発アプリ BURALLY](https://github.com/team-musashi/stamp-rally)
+- [Riverpodの DI 機能を用いてレイヤードアーキテクチャを構築してみた](https://flutter-square.com/riverpod-di-layered-architecture/)
+- [BURALLY](https://github.com/team-musashi/stamp-rally)
 
 ## おまけ：RiverpodのDI機能について（2022/9時点）
 参考までに...
