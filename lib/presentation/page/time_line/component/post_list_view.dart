@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_reference_app/presentation/component/loading.dart';
 import 'package:flutter_reference_app/presentation/error_handler_mixin.dart';
 import 'package:flutter_reference_app/presentation/router_config.dart';
-import 'package:flutter_reference_app/presentation/view_utils.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -22,13 +21,7 @@ class PostListView extends ConsumerWidget with ErrorHandlerMixin {
       loading: () {
         return const OverlayLoading();
       },
-      error: (error, stackTrace) {
-        ref.read(viewUtilsProvider).showSnackBar(
-              message: error.toString(),
-              mode: SnackBarMode.failure,
-            );
-        return const SizedBox();
-      },
+      error: (error, stack) => Center(child: Text('$error')),
       data: (posts) {
         return ListView.builder(
           itemCount: posts.length,
@@ -53,7 +46,6 @@ class PostListView extends ConsumerWidget with ErrorHandlerMixin {
                     onPressed: () async {
                       execute(
                         context,
-                        ref,
                         () => ref
                             .read(postUsecaseProvider)
                             .deletePost(id: posts[index].id!),
