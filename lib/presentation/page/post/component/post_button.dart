@@ -34,7 +34,6 @@ class PostButton extends ConsumerWidget with ErrorHandlerMixin {
                 );
         await execute(
           context,
-          ref,
           action,
           successMessage: successMessage,
         );
