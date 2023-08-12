@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_reference_app/domain/app_exception.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../domain/post/entity/post.dart';
@@ -35,9 +36,9 @@ class PostRepositoryImpl implements PostRepository {
         ),
       );
     } on FirebaseException catch (e) {
-      throw ('Firestore の追加処理でエラーが発生しました: ${e.code}');
+      throw AppException('Firestore の追加処理でエラーが発生しました: ${e.code}');
     } catch (e) {
-      throw ('予期しないエラーが発生しました: $e');
+      throw AppException('予期しないエラーが発生しました: $e');
     }
   }
 
@@ -57,9 +58,9 @@ class PostRepositoryImpl implements PostRepository {
                 .toList(),
           );
     } on FirebaseException catch (e) {
-      throw ('Firestore の読取処理でエラーが発生しました: ${e.code}');
+      throw AppException('Firestore の読取処理でエラーが発生しました: ${e.code}');
     } catch (e) {
-      throw ('予期しないエラーが発生しました: $e');
+      throw AppException('予期しないエラーが発生しました: $e');
     }
   }
 
@@ -86,9 +87,9 @@ class PostRepositoryImpl implements PostRepository {
     try {
       collectionRef.doc(docId).delete();
     } on FirebaseException catch (e) {
-      throw ('Firestore の削除処理でエラーが発生しました: ${e.code}');
+      throw AppException('Firestore の削除処理でエラーが発生しました: ${e.code}');
     } catch (e) {
-      throw ('予期しないエラーが発生しました: $e');
+      throw AppException('予期しないエラーが発生しました: $e');
     }
   }
 
