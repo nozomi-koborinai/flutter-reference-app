@@ -9,18 +9,6 @@ final postRepositoryProvider = Provider<PostRepository>(
 );
 
 /// 投稿リポジトリインタフェース
-interface class IPostRepository {
-  Future<void> addPost({required Post post}) => throw UnimplementedError();
-  Stream<List<Post>> streamAllPosts() => throw UnimplementedError();
-  Future<void> updatePost({required Post post}) => throw UnimplementedError();
-  Future<void> deletePostFromId({required String docId}) =>
-      throw UnimplementedError();
-
-  /// 破棄処理の実装をルール付けておく
-  void dispose() => throw UnimplementedError();
-}
-
-/// 投稿リポジトリインタフェース
 abstract interface class PostRepository {
   /// Create
   Future<void> addPost({required Post post});
